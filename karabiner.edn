@@ -25,7 +25,7 @@
         [:9 [:alfred "kill process" "com.ngreenstein.alfred-process-killer"]]
         [:q [:alfred "search quiver" "com.cook.quiver"]]
         [:p [:alfred "activate spot_mini" "com.vdesabou.spotify.mini.player"]]
-        [:l [:!CSL]] ;; activate lastpass by keystroke
+        [:l [:!CSl]] ;; activate lastpass by keystroke
      ]
     }
 
