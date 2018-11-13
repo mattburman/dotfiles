@@ -1,0 +1,42 @@
+{
+:templates {
+    :launch "open -a '%s.app'"
+}
+:simlayers {
+    :vi-mode {:key :d}
+    :launch-mode {:key :w}
+}
+:main [
+    {:des "caps_lock"
+         :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
+
+    {:des "right_command"
+         :rules [[:right_command :f16]]}
+
+    {:des "launcher mode"
+     :rules [:launch-mode
+                [:g [:launch "Google Chrome"]]
+                [:i [:launch "iTerm"]]
+                [:s [:launch "Slack"]]
+                [:e [:launch "Microsoft Outlook"]]
+                [:v [:launch "Visual Studio Code"]]
+                [:j [:launch "intelliJ IDEA"]]
+                [:k [:launch "Keyboard Maestro"]]
+            ]
+    }
+
+    ;; vi mode with d key
+    {:des "Vi Mode [D as Trigger Key]"
+     :rules [:vi-mode
+                [:##j :down_arrow]
+                [:##k :up_arrow]
+                [:##h :left_arrow]
+                [:##l :right_arrow]
+                [:##b :!Oleft_arrow]
+                [:##w :!Oright_arrow]
+                [:##0 :!Ta]
+                [:##4 :!Te]
+            ]
+    }
+]
+}
