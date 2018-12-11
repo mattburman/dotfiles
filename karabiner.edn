@@ -13,10 +13,6 @@
       :rules [[:##caps_lock :left_control nil {:alone :escape}]]
     }
 
-    {:des "right_command"
-      :rules [[:right_command :f16]]
-    }
-
     {:des "search mode"
       :rules [:search-mode
         [:k [:alfred "search km" "iansinnott.keyboardmaestro"]]
