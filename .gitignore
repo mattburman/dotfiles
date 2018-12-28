@@ -5,6 +5,7 @@
 !.gitignore
 !karabiner.edn
 !Brewfile
+!README.md
 
 # Directories
 !**/LaunchDaemons
