@@ -1,7 +1,11 @@
 # Ignore everything
 *
 
-# Whitelist
+# Whitelist files
 !.gitignore
 !karabiner.edn
 !Brewfile
+
+# Directories
+!**/LaunchDaemons
+!LaunchDaemons/**
