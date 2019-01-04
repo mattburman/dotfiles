@@ -1,0 +1,20 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: []
+
+- link:
+    ~/.config/nvim: nvim
+    ~/.config/karabiner.edn: karabiner.edn
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [
+      mkdir -p ~/.config/karabiner
+      && touch ~/.config/karabiner/karabiner.json
+      && /usr/local/bin/goku
+      , "Karabiner Elements - ensure Goku profile set"
+    ]
+

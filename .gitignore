@@ -6,7 +6,10 @@
 !karabiner.edn
 !Brewfile
 !README.md
+!install.conf.yaml
 
 # Directories
 !**/LaunchDaemons
 !LaunchDaemons/**
+
+!**/dotbot
