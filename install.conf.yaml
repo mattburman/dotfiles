@@ -8,6 +8,8 @@
 - link:
     ~/.config/nvim: nvim
     ~/.config/karabiner.edn: karabiner.edn
+    ~/.zshrc: .zshrc
+    ~/.zsh:
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
