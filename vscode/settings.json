@@ -1,0 +1,23 @@
+{
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.heatmap.toggleMode": "window",
+    "gitlens.blame.toggleMode": "window",
+    "gitlens.recentChanges.toggleMode": "window",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.renderWhitespace": "all",
+    "window.zoomLevel": 2,
+    "editor.tabSize": 2,
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "workbench.colorTheme": "Default High Contrast",
+    "workbench.activityBar.visible": false,
+    "screencastMode.onlyKeyboardShortcuts": true,
+    // Go
+    "go.useLanguageServer": true,
+    "go.languageServerExperimentalFeatures": {
+        "diagnostics": true // for build and vet errors as you type
+    },
+}
