@@ -4,3 +4,6 @@
 [submodule "zsh/submodules/fzf"]
 	path = zsh/submodules/fzf
 	url = git@github.com:junegunn/fzf.git
+[submodule "zsh/submodules/kubectl-aliases"]
+	path = zsh/submodules/kubectl-aliases
+	url = git@github.com:ahmetb/kubectl-aliases.git
