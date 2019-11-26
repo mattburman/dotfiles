@@ -3,9 +3,9 @@ for file (~/.zsh/lib/*.zsh); do
   source $file
 done
 # Load all of the files in ZSH_PATH/alises that end in .zsh
-# for file ($ZSH_PATH/aliases/*.zsh); do
-#   source $file
-# done
+for file (~/.zsh/aliases/*.zsh); do
+  source $file
+done
 source ~/.zsh/submodules/fzf/shell/key-bindings.zsh
 
 ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
