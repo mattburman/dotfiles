@@ -1,0 +1,7 @@
+[user]
+	name = Matt Burman
+	email = matt@mattburman.com
+[init]
+	templatedir = ~/.git_template
+[core]
+	excludesfile = /Users/matt/.gitignore_global

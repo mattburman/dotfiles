@@ -1,23 +1,37 @@
 {
+    // general
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Default High Contrast",
+    "workbench.activityBar.visible": false,
+    "editor.minimap.maxColumn": 30,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "write-good.languages": [
+        "markdown",
+        "tex",
+        "latex"
+    ],
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
     "gitlens.heatmap.toggleMode": "window",
     "gitlens.blame.toggleMode": "window",
     "gitlens.recentChanges.toggleMode": "window",
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "editor.renderWhitespace": "all",
-    "window.zoomLevel": 2,
-    "editor.tabSize": 2,
     "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
+      "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "workbench.colorTheme": "Default High Contrast",
-    "workbench.activityBar.visible": false,
-    "screencastMode.onlyKeyboardShortcuts": true,
-    // Go
+
+    // Golang
     "go.useLanguageServer": true,
     "go.languageServerExperimentalFeatures": {
         "diagnostics": true // for build and vet errors as you type
     },
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+      "--fast"
+    ]
 }

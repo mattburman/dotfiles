@@ -2,6 +2,7 @@
     link:
       relink: true
       create: true
+      force: true # replace files
 
 - clean: []
 
@@ -10,6 +11,8 @@
     ~/.config/karabiner.edn: karabiner.edn
     ~/.zshrc: zsh/zshrc.zsh
     ~/.zsh:
+    ~/.gitignore_global: git/gitignore_global
+    ~/.gitconfig: git/gitconfig
     ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
     ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json
 
