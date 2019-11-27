@@ -1,6 +1,9 @@
 [user]
 	name = Matt Burman
 	email = matt@mattburman.com
+[includeIf "gitdir:~/c/s/"]
+	path = ~/.gitconfig-sbg
+
 [init]
 	templatedir = ~/.git_template
 [core]
