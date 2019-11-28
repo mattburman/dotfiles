@@ -9,6 +9,9 @@ done
 source ~/.zsh/submodules/fzf/shell/key-bindings.zsh
 source ~/.zsh/submodules/kubectl-aliases/.kubectl_aliases
 
+source ~/.nix-profile/etc/profile.d/nix.sh
+if test -e /etc/static/bashrc; then . /etc/static/bashrc; fi 2> /dev/null # import nix bashrc but ignore errors
+
 ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
 ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is clean
 
@@ -99,3 +102,4 @@ function precmd {
   PROMPT="$(build_prompt)"
   RPROMPT="$(build_rprompt)"
 }
+
