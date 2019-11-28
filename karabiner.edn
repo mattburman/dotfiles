@@ -50,6 +50,7 @@
         [:##w :!Oright_arrow]
         [:##0 :!Ta]
         [:##4 :!Te]
+        [:##f :return_or_enter]
       ]
     }
 
