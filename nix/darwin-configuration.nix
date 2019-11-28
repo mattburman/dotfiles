@@ -4,13 +4,43 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
-    [ pkgs.vim
+    [
+      pkgs.bash_5
+      pkgs.coreutils-full
+      pkgs.curl
+      pkgs.fd
       pkgs.fzf
+      pkgs.gitAndTools.gitFull
+      pkgs.gitAndTools.hub
+      pkgs.gnugrep
+      pkgs.goku
+      pkgs.gron
+      pkgs.jq
+      pkgs.kafkacat
+      pkgs.kubectl
+      pkgs.less
+      pkgs.m-cli
+      pkgs.mtr
+      pkgs.rsync
+      pkgs.skaffold
+      pkgs.speedtest-cli
+      pkgs.speedtest_cli
+      pkgs.sqlite
+      pkgs.sqlite-replication
+      pkgs.stern
+      pkgs.terraform
+      pkgs.tldr
+      pkgs.tree
+      pkgs.unixtools.watch
+      pkgs.vim
+      pkgs.vim
+      pkgs.wget
+      pkgs.yarn
     ];
 
   # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/pkgs/darwin/configuration.nix
+  # environment.darwinConfig = "$HOME/.config/pkgs/darwin/configuration.nix";
 
   # Auto upgrade nix package and the daemon service.
   # services.nix-daemon.enable = true;
