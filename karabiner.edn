@@ -7,11 +7,12 @@
     :vi-mode {:key :d}
     :launch-mode {:key :w}
     :search-mode {:key :s}
+    :caps_lock-mode {:key :caps_lock}
 }
 :main [
-    {:des "caps_lock"
-      :rules [[:##caps_lock :left_control nil {:alone :escape}]]
-    }
+    ;{:des "caps_lock"
+      ;:rules [[:##caps_lock :left_control nil {:alone :escape}]]
+    ;}
 
     {:des "search mode"
       :rules [:search-mode
@@ -28,6 +29,7 @@
     {:des "launcher mode"
       :rules [:launch-mode
         [:g [:launch "Google Chrome"]]
+        [:f [:launch "Firefox Developer Edition"]]
         [:i [:launch "iTerm"]]
         [:s [:launch "Slack"]]
         [:e [:launch "Microsoft Outlook"]]
@@ -50,5 +52,51 @@
         [:##4 :!Te]
       ]
     }
+
+    {:des "capskey",
+         :rules [:caps_lock-mode
+                 [:open_bracket :!TOopen_bracket]
+                 [:close_bracket :!TOclose_bracket]
+                 [:semicolon :!TOsemicolon]
+                 [:quote :!TOquote]
+                 [:comma :!TOcomma]
+                 [:period :!TOperiod]
+                 [:slash :!TOslash]
+                 [:a :!TOa]
+                 [:b :!TOb]
+                 [:c :!TOc]
+                 [:d :!TOd]
+                 [:e :!TOe]
+                 [:f :!TOf]
+                 [:g :!TOg]
+                 [:h :!TOh]
+                 [:i :!TOi]
+                 [:j :!TOj]
+                 [:k :!TOk]
+                 [:l :!TOl]
+                 [:m :!TOm]
+                 [:n :!TOn]
+                 [:o :!TOo]
+                 [:p :!TOp]
+                 [:q :!TOq]
+                 [:r :!TOr]
+                 [:s :!TOs]
+                 [:t :!TOt]
+                 [:u :!TOu]
+                 [:v :!TOv]
+                 [:w :!TOw]
+                 [:x :!TOx]
+                 [:y :!TOy]
+                 [:z :!TOz]
+                 [:1 :!TO1]
+                 [:2 :!TO2]
+                 [:3 :!TO3]
+                 [:4 :!TO4]
+                 [:5 :!TO5]
+                 [:6 :!TO6]
+                 [:7 :!TO7]
+                 [:8 :!TO8]
+                 [:9 :!TO9]
+                 [:0 :!TO0]]}
 ]
 }
