@@ -19,7 +19,9 @@ You need to make sure karabiner-elements has a profile named `Goku` and that it 
 
 This is a list of apps that I use to be installed on any fresh builds
 Install via `brew bundle`
-I have an appetite to move to Nix but this is what I have for now
+
+## Nix
+Nix is another package manager. Brew will be installed alongside, with Nix packages taking precidence since it is first in $PATH.
 
 ## LaunchDaemons
 This directory contains LaunchDaemons with it's own README on how to configure
