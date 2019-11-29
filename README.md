@@ -17,11 +17,11 @@ You need to make sure karabiner-elements has a profile named `Goku` and that it 
 
 ## Brewfile
 
-This is a list of apps that I use to be installed on any fresh builds
+This is a list of cask apps that I use to be installed on any fresh builds
 Install via `brew bundle`
 
 ## Nix
-Nix is another package manager. Brew will be installed alongside, with Nix packages taking precidence since it is first in $PATH.
+Nix is another package manager. Brew will be installed alongside, with Nix packages taking precedence since it is first in $PATH. In general I will try to install most CLI utils via Nix and any desktop apps via Brew cask.
 
 ## LaunchDaemons
 This directory contains LaunchDaemons with it's own README on how to configure
