@@ -1,7 +1,7 @@
 {
 :templates {
     :launch "open -a '%s.app'"
-    :alfred "osascript -e 'tell application \"Alfred 3\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
+    :alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
 }
 :simlayers {
     :vi-mode {:key :d}
@@ -48,8 +48,8 @@
         [:##l :right_arrow]
         [:##b :!Oleft_arrow]
         [:##w :!Oright_arrow]
-        [:##0 :!Ta]
-        [:##4 :!Te]
+        [:##a :!Ca]; highlight all
+        [:##e :!Te]; go to end of line via ctrl-e
         [:##f :return_or_enter]
       ]
     }
@@ -63,11 +63,11 @@
                  [:comma :!TOcomma]
                  [:period :!TOperiod]
                  [:slash :!TOslash]
-                 [:a :!TOa]
+                 [:a :!Ta]; ctrl-a start of line
                  [:b :!TOb]
                  [:c :!TOc]
                  [:d :!TOd]
-                 [:e :!TOe]
+                 [:e :!Te]; ctrl-e end of line
                  [:f :!TOf]
                  [:g :!TOg]
                  [:h :!TOh]
