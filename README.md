@@ -4,7 +4,7 @@ This repo contains config for various things for a macOS setup.
 
 # dotbot
 
-Dotbot is makes it easier to install dotfiles
+Dotbot makes it easier to install dotfiles
 by taking a `install.conf.yaml` of symlinks and creating them,
 and running shell commands
 
