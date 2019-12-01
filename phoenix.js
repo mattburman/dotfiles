@@ -1,4 +1,9 @@
 const HYPER = ['ctrl', 'alt', 'cmd', 'shift'];
+const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
+
+const HIST_LEN = 20;
+const history = new Array(HIST_LEN);
+history.add = v => { history.pop(); history.splice(0, 0, v) };
 
 const move = (getCoords) => {
   var screen = Screen.main().flippedVisibleFrame();
@@ -16,32 +21,70 @@ const move = (getCoords) => {
   }
 };
 
-Key.on('m', HYPER, () => {
-  move((window, screen) => ({
+const hyper = (key, fn) => {
+  Key.on(key, HYPER, () => {
+    fn();
+    console.log(JSON.stringify(history));
+    return history.add(key);
+  });
+};
+
+const repeats = (key) => {
+  const h = history.join("");
+  const start = new RegExp(`^(${key}*)`);
+  const [, keys] = h.match(start);
+  const repeats = keys.length;
+  return repeats;
+};
+const thirds = n => {
+  switch(n % 3) {
+    case 0: return 2/3;
+    case 1: return 1/2;
+    case 2: return 1/3;
+    default: return 1/2;
+  }
+};
+const getThirds = pipe(repeats, thirds);
+
+hyper('m', () => {
+  const [last] = history;
+  console.log(last);
+  if (last === 'm') return move((window, screen) => ({
+    x: screen.x,
+    y: screen.y,
+    w: screen.width,
+    h: screen.height,
+  }));
+
+  return move((window, screen) => ({
     x: screen.x + (screen.width / 2) - (window.frame().width / 2),
     y: screen.y + (screen.height / 2) - (window.frame().height / 2),
   }));
 });
 
-Key.on('h', HYPER, () => {
+hyper('h', () => {
+  const mult = 1 - getThirds('h');
+
   move((window, screen) => ({
     x: screen.x,
     y: screen.y,
-    w: screen.width / 2,
+    w: screen.width * mult,
     h: screen.height,
   }));
 });
 
-Key.on('l', HYPER, () => {
+hyper('l', () => {
+  const mult = getThirds('l');
+
   move((window, screen) => ({
-    x: screen.x + screen.width / 2,
+    x: screen.x + (mult * screen.width),
     y: screen.y,
-    w: screen.width / 2,
+    w: screen.width * (1-mult),
     h: screen.height,
   }));
 });
 
-Key.on('j', HYPER, () => {
+hyper('j', () => {
   move((window, screen) => ({
     x: window.frame().x,
     y: screen.y + (screen.height / 2),
@@ -50,7 +93,7 @@ Key.on('j', HYPER, () => {
   }));
 });
 
-Key.on('k', HYPER, () => {
+hyper('k', () => {
   move((window, screen) => ({
     x: window.frame().x,
     y: screen.y,

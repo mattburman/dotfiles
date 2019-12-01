@@ -60,7 +60,9 @@
                  [:h :!!h]
                  [:j :!!j]
                  [:k :!!k]
-                 [:l :!!l]]}
+                 [:l :!!l]
+                 [:m :!!m]
+                 ]}
 
     {:des "Caps mode",
          :rules [:caps_lock-mode
@@ -88,7 +90,7 @@
                  [:o :!TOo]
                  [:p :!TOp]
                  [:q :!TOq]
-                 [:r :!TOr]
+                 [:r :!Tr]; redo in vi
                  [:s :!TOs]
                  [:t :!TOt]
                  [:u :!TOu]
