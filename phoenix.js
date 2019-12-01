@@ -45,11 +45,12 @@ const thirds = n => {
   }
 };
 const getThirds = pipe(repeats, thirds);
+const getToggled = pipe(repeats, n => !!(n%2));
 
 hyper('m', () => {
-  const [last] = history;
-  console.log(last);
-  if (last === 'm') return move((window, screen) => ({
+  const toggled = getToggled('m');
+
+  if (toggled) return move((window, screen) => ({
     x: screen.x,
     y: screen.y,
     w: screen.width,
@@ -57,8 +58,10 @@ hyper('m', () => {
   }));
 
   return move((window, screen) => ({
-    x: screen.x + (screen.width / 2) - (window.frame().width / 2),
-    y: screen.y + (screen.height / 2) - (window.frame().height / 2),
+    x: screen.x + (screen.width * 1/3),
+    y: window.frame().y,
+    w: screen.width * (1/3),
+    h: window.height,
   }));
 });
 
@@ -85,19 +88,23 @@ hyper('l', () => {
 });
 
 hyper('j', () => {
+  const mult = 0.5;
+
   move((window, screen) => ({
     x: window.frame().x,
-    y: screen.y + (screen.height / 2),
+    y: screen.y + (mult * screen.height),
     w: window.width,
-    h: screen.height / 2,
+    h: screen.height * mult,
   }));
 });
 
 hyper('k', () => {
+  const mult = 0.5;
+
   move((window, screen) => ({
     x: window.frame().x,
     y: screen.y,
     w: window.width,
-    h: screen.height / 2,
+    h: screen.height * mult,
   }));
 });
