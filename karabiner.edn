@@ -8,6 +8,7 @@
     :launch-mode {:key :w}
     :search-mode {:key :s}
     :caps_lock-mode {:key :caps_lock}
+    :window-mode {:key :f}
 }
 :main [
     ;{:des "caps_lock"
@@ -54,7 +55,14 @@
       ]
     }
 
-    {:des "capskey",
+    {:des "Window mode [F key as Trigger Key]",
+         :rules [:window-mode
+                 [:h :!!h]
+                 [:j :!!j]
+                 [:k :!!k]
+                 [:l :!!l]]}
+
+    {:des "Caps mode",
          :rules [:caps_lock-mode
                  [:open_bracket :!TOopen_bracket]
                  [:close_bracket :!TOclose_bracket]

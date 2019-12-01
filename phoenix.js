@@ -1,9 +1,4 @@
-const handler = new Key('h', ['ctrl'], () => {
-	console.log(Window);
-  // Window.focused().setTopLeft({ 
-});
-
-const HYPER = ['ctrl', 'alt'];
+const HYPER = ['ctrl', 'alt', 'cmd', 'shift'];
 
 const move = (getCoords) => {
   var screen = Screen.main().flippedVisibleFrame();
