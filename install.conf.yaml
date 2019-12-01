@@ -17,6 +17,7 @@
     ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
     ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json
     ~/.nixpkgs/darwin-configuration.nix: nix/darwin-configuration.nix
+    ~/.phoenix.js: phoenix.js
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
