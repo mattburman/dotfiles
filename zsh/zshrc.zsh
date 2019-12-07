@@ -16,6 +16,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is d
 ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is clean
 
 export EDITOR=vim
+export VISUAL=vim
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
