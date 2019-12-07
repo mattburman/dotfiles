@@ -77,35 +77,35 @@ const scale = (windowFrame, screenFrame, nextScreenFrame) => {
 
 // v-center to maximise
 hyper('m', () => {
-  const toggled = useToggle('m');
   const repeats = useRepeats('m');
-  
-  switch (repeats % 3) {
-    case 0:
-      // move to middle third
-      return move(({ screenFrame, windowFrame }) => ({
-        x: screenFrame.x + (screenFrame.width * 1/3),
-        y: windowFrame.y,
-        w: screenFrame.width * (1/3),
-        h: windowFrame.height,
-      }));
-    case 1:
-      // v-maximise
-      return move(({ screenFrame, windowFrame }) => ({
-        x: screenFrame.x + (screenFrame.width * 1/3),
-        y: screenFrame.y,
-        w: screenFrame.width * (1/3),
-        h: screenFrame.height,
-      }));
-    default:
-      // maximise
-      return move(({ screenFrame }) => ({
-        x: screenFrame.x,
-        y: screenFrame.y,
-        w: screenFrame.width,
-        h: screenFrame.height,
-      }));
+
+  if (repeats === 0) {
+    // move to middle third
+    return move(({ screenFrame, windowFrame }) => ({
+      x: screenFrame.x + (screenFrame.width * 1/3),
+      y: windowFrame.y,
+      w: screenFrame.width * (1/3),
+      h: windowFrame.height,
+    }));
   }
+
+  const toggle = repeats % 2 === 1;
+
+  // v-maximise
+  if (toggle) return move(({ screenFrame }) => ({
+    x: screenFrame.x + (screenFrame.width * 1/3),
+    y: screenFrame.y,
+    w: screenFrame.width * (1/3),
+    h: screenFrame.height,
+  }));
+
+  // maximise
+  return move(({ screenFrame }) => ({
+    x: screenFrame.x,
+    y: screenFrame.y,
+    w: screenFrame.width,
+    h: screenFrame.height,
+  }));
 });
 
 hyper('b', () => {
