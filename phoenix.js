@@ -38,7 +38,7 @@ const hyper = (key, fn) => {
   });
 };
 
-const repeats = (key) => {
+const useRepeats = (key) => {
   const h = history.join("");
   const start = new RegExp(`^(${key}*)`);
   const [, keys] = h.match(start);
@@ -53,8 +53,8 @@ const thirds = n => {
     default: return 1/2;
   }
 };
-const getThirds = pipe(repeats, thirds);
-const useToggle = pipe(repeats, n => !!(n%2));
+const useThirds = pipe(useRepeats, thirds);
+const useToggle = pipe(useRepeats, n => !!(n%2));
 
 const scale = (windowFrame, screenFrame, nextScreenFrame) => {
   const xProp = windowFrame.width / screenFrame.width;
@@ -78,20 +78,34 @@ const scale = (windowFrame, screenFrame, nextScreenFrame) => {
 // v-center to maximise
 hyper('m', () => {
   const toggled = useToggle('m');
-
-  if (toggled) return move(({ screenFrame }) => ({
-    x: screenFrame.x,
-    y: screenFrame.y,
-    w: screenFrame.width,
-    h: screenFrame.height,
-  }));
-
-  return move(({ screenFrame, windowFrame }) => ({
-    x: screenFrame.x + (screenFrame.width * 1/3),
-    y: windowFrame.y,
-    w: screenFrame.width * (1/3),
-    h: windowFrame.height,
-  }));
+  const repeats = useRepeats('m');
+  
+  switch (repeats % 3) {
+    case 0:
+      // move to middle third
+      return move(({ screenFrame, windowFrame }) => ({
+        x: screenFrame.x + (screenFrame.width * 1/3),
+        y: windowFrame.y,
+        w: screenFrame.width * (1/3),
+        h: windowFrame.height,
+      }));
+    case 1:
+      // v-maximise
+      return move(({ screenFrame, windowFrame }) => ({
+        x: screenFrame.x + (screenFrame.width * 1/3),
+        y: screenFrame.y,
+        w: screenFrame.width * (1/3),
+        h: screenFrame.height,
+      }));
+    default:
+      // maximise
+      return move(({ screenFrame }) => ({
+        x: screenFrame.x,
+        y: screenFrame.y,
+        w: screenFrame.width,
+        h: screenFrame.height,
+      }));
+  }
 });
 
 hyper('b', () => {
@@ -112,7 +126,7 @@ hyper('e', () => {
 
 
 hyper('h', () => {
-  const mult = 1 - getThirds('h');
+  const mult = 1 - useThirds('h');
 
   move(({ screenFrame }) => ({
     x: screenFrame.x,
@@ -123,7 +137,7 @@ hyper('h', () => {
 });
 
 hyper('l', () => {
-  const mult = getThirds('l');
+  const mult = useThirds('l');
 
   move(({ screenFrame }) => ({
     x: screenFrame.x + (mult * screenFrame.width),
