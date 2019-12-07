@@ -1,3 +1,23 @@
+;; this is a little bit weird, but it's convenient
+;; the rule [:!Ca :!T1]
+;; means from command a to control 1
+;; :!Ca is keycode :a and prefix a with !C
+
+;; here's the definition
+
+;; !  | means mandatory
+;; #  | means optional
+;; C  | left_command
+;; T  | left_control
+;; O  | left_option
+;; S  | left_shift
+;; F  | fn
+;; Q  | right_command
+;; W  | right_control
+;; E  | right_option
+;; R  | right_shift
+;; !! | mandatory command + control + optional + shift (hyper)
+;; ## | optional any
 {
 :templates {
     :launch "open -a '%s.app'"
@@ -11,10 +31,6 @@
     :window-mode {:key :f}
 }
 :main [
-    ;{:des "caps_lock"
-      ;:rules [[:##caps_lock :left_control nil {:alone :escape}]]
-    ;}
-
     {:des "search mode"
       :rules [:search-mode
         [:k [:alfred "search km" "iansinnott.keyboardmaestro"]]
