@@ -17,6 +17,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is c
 
 export EDITOR=vim
 export VISUAL=vim
+export SHELL=$(which zsh)
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
