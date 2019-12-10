@@ -1,4 +1,6 @@
 # used by script in dotbot install script
 # generates single fast script to source in zshrc
 lukechilds/zsh-nvm
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
 
