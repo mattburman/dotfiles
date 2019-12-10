@@ -2,10 +2,10 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "d536330748bb2a41ad7e350e436c104f3d7f8188"
+        "revision": "77b6212b15039c5997c2e89816a4a2a9c7949d25"
       },
       "homebrew/cask-versions": {
-        "revision": "cca1f90536cdd6a62f900488fb6c03c7c2d0b18c"
+        "revision": "b11567e09b91e82e8323f39878d6e9251ee51dad"
       }
     },
     "cask": {
@@ -216,6 +216,14 @@
             "appdir": "/Applications"
           }
         }
+      },
+      "dropbox": {
+        "version": "latest",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
       }
     },
     "brew": {
@@ -247,7 +255,7 @@
       "mojave": {
         "HOMEBREW_VERSION": "2.2.1",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "9f1e6ddd2b9bf2e1df1d82c7da9187ff674ddfda",
+        "Homebrew/homebrew-core": "72e30491cf94d0e1ed9bcb4d99d30421bc3b6c11",
         "CLT": "10.3.0.0.1.1562985497",
         "Xcode": "10.2.1",
         "macOS": "10.14.6"
