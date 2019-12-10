@@ -1,0 +1,4 @@
+# used by script in dotbot install script
+# generates single fast script to source in zshrc
+lukechilds/zsh-nvm
+
