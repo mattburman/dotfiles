@@ -1,9 +1,9 @@
 # used by script in dotbot install script
 # generates single fast script to source in zshrc
 lukechilds/zsh-nvm
+zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
-zsh-users/zsh-syntax-highlighting
 tarrasch/zsh-bd
 wfxr/forgit
