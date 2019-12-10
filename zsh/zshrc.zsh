@@ -10,6 +10,8 @@ for file (~/.zsh/aliases/*.zsh); do
   source $file
 done
 source ~/.zsh/submodules/fzf/shell/key-bindings.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 source ~/.zsh/submodules/kubectl-aliases/.kubectl_aliases
 
 source ~/.nix-profile/etc/profile.d/nix.sh
