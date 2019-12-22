@@ -21,6 +21,7 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [antibody bundle < ~/.zsh/zsh_plugins.txt > ~/.zsh_plugins.sh]
   - [
       mkdir -p ~/.config/karabiner
       && touch ~/.config/karabiner/karabiner.json

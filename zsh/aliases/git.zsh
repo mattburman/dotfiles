@@ -1,4 +1,5 @@
 ### Stolen from: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
+# Some replaced with https://github.com/wfxr/forgit
 ### (Commented out compdefs)
 #
 # Functions
@@ -34,7 +35,8 @@ function work_in_progress() {
 
 alias g='git'
 
-alias ga='git add'
+# alias ga='git add' # using wfxr/forgit instead
+alias gad='git add'
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gau='git add --update'
@@ -65,9 +67,8 @@ alias gcans!='git commit -v -a -s --no-edit --amend'
 alias gcam='git commit -a -m'
 alias gcsm='git commit -s -m'
 alias gcb='git checkout -b'
-alias gcf='git config --list'
 alias gcl='git clone --recurse-submodules'
-alias gclean='git clean -id'
+# alias gclean='git clean -id' using wfxr/forgit instead
 alias gpristine='git reset --hard && git clean -dfx'
 alias gcm='git checkout master'
 alias gcd='git checkout develop'
@@ -79,7 +80,8 @@ alias gcpa='git cherry-pick --abort'
 alias gcpc='git cherry-pick --continue'
 alias gcs='git commit -S'
 
-alias gd='git diff'
+# alias gd='git diff' using wfxr/forgit instead
+alias gdf='git diff'
 alias gdca='git diff --cached'
 alias gdcw='git diff --cached --word-diff'
 alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
@@ -202,7 +204,6 @@ alias grbi='git rebase -i'
 alias grbm='git rebase master'
 alias grbs='git rebase --skip'
 alias grev='git revert'
-alias grh='git reset'
 alias grhh='git reset --hard'
 alias groh='git reset origin/$(git_current_branch) --hard'
 alias grm='git rm'
@@ -223,7 +224,6 @@ alias gsh='git show'
 alias gsi='git submodule init'
 alias gsps='git show --pretty=short --show-signature'
 alias gsr='git svn rebase'
-alias gss='git status -s'
 alias gst='git status'
 
 # use the default stash push on git 2.13 and newer

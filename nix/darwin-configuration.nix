@@ -5,6 +5,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [
+      pkgs.antibody
       pkgs.bash_5
       pkgs.coreutils-full
       pkgs.curl
@@ -36,6 +37,7 @@
       pkgs.vim
       pkgs.wget
       pkgs.yarn
+      pkgs.zsh
     ];
 
   # Use a custom configuration.nix location.
@@ -47,7 +49,7 @@
   # nix.package = pkgs.nix;
 
   # Create /etc/bashrc that loads the nix-darwin environment.
-  programs.bash.enable = true;
+  # programs.bash.enable = true;
   # programs.zsh.enable = true;
   # programs.fish.enable = true;
 
