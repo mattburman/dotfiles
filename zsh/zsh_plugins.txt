@@ -8,3 +8,4 @@ zsh-users/zsh-history-substring-search
 tarrasch/zsh-bd
 wfxr/forgit
 tysonwolker/iterm-tab-colors
+akarzim/zsh-docker-aliases
