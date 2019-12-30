@@ -9,6 +9,7 @@
       pkgs.bash_5
       pkgs.coreutils-full
       pkgs.curl
+      pkgs.dive
       pkgs.fd
       pkgs.fzf
       pkgs.gitAndTools.gitFull
