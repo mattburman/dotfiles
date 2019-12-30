@@ -31,7 +31,7 @@ const move = (getCoords) => {
   }
 };
 
-const hyper = (key, fn) => {
+const mod1 = (key, fn) => {
   Key.on(key, HYPER, () => {
     fn();
     return history.add(key);
@@ -76,7 +76,7 @@ const scale = (windowFrame, screenFrame, nextScreenFrame) => {
 };
 
 // v-center to maximise
-hyper('m', () => {
+mod1('m', () => {
   const repeats = useRepeats('m');
 
   if (repeats === 0) {
@@ -108,7 +108,7 @@ hyper('m', () => {
   }));
 });
 
-hyper('b', () => {
+mod1('b', () => {
   move(({ screenFrame, screen, windowFrame }) => scale(
     windowFrame,
     screenFrame,
@@ -116,7 +116,7 @@ hyper('b', () => {
   ));
 });
 
-hyper('e', () => {
+mod1('e', () => {
   move(({ screenFrame, screen, windowFrame }) => scale(
     windowFrame,
     screenFrame,
@@ -125,7 +125,7 @@ hyper('e', () => {
 });
 
 
-hyper('h', () => {
+mod1('h', () => {
   const mult = 1 - useThirds('h');
 
   move(({ screenFrame }) => ({
@@ -136,7 +136,7 @@ hyper('h', () => {
   }));
 });
 
-hyper('l', () => {
+mod1('l', () => {
   const mult = useThirds('l');
 
   move(({ screenFrame }) => ({
@@ -147,7 +147,7 @@ hyper('l', () => {
   }));
 });
 
-hyper('j', () => {
+mod1('j', () => {
   const mult = 0.5;
 
   move(({ screenFrame, windowFrame }) => ({
@@ -158,7 +158,7 @@ hyper('j', () => {
   }));
 });
 
-hyper('k', () => {
+mod1('k', () => {
   const mult = 0.5;
 
   move(({ screenFrame, windowFrame }) => ({
