@@ -8,3 +8,5 @@
 	templatedir = ~/.git_template
 [core]
 	excludesfile = /Users/matt/.gitignore_global
+[url "git@github.com:"]
+	insteadOf = https://github.com/
