@@ -34,6 +34,62 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>github.com/gocolly/colly</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:22:04Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>github.com/gocolly/colly</string>
+					<key>platform</key>
+					<string>godoc</string>
+					<key>uniqueIdentifier</key>
+					<string>github.com/gocolly/colly</string>
+				</dict>
+			</dict>
+			<key>github.com/gocolly/colly/proxy</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:22:11Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>github.com/gocolly/colly/proxy</string>
+					<key>platform</key>
+					<string>godoc</string>
+					<key>uniqueIdentifier</key>
+					<string>github.com/gocolly/colly/proxy</string>
+				</dict>
+			</dict>
+			<key>github.com/gocolly/colly/queue</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:22:05Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>github.com/gocolly/colly/queue</string>
+					<key>platform</key>
+					<string>godoc</string>
+					<key>uniqueIdentifier</key>
+					<string>github.com/gocolly/colly/queue</string>
+				</dict>
+			</dict>
+			<key>github.com/gocolly/colly/storage</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:22:05Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>github.com/gocolly/colly/storage</string>
+					<key>platform</key>
+					<string>godoc</string>
+					<key>uniqueIdentifier</key>
+					<string>github.com/gocolly/colly/storage</string>
+				</dict>
+			</dict>
 			<key>github.com/lovoo/goka</key>
 			<dict>
 				<key>date</key>
@@ -102,6 +158,48 @@
 					<string>godoc</string>
 					<key>uniqueIdentifier</key>
 					<string>github.com/lovoo/goka/web/templates</string>
+				</dict>
+			</dict>
+			<key>github.com/spf13/cobra</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:20:34Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>github.com/spf13/cobra</string>
+					<key>platform</key>
+					<string>godoc</string>
+					<key>uniqueIdentifier</key>
+					<string>github.com/spf13/cobra</string>
+				</dict>
+			</dict>
+			<key>github.com/spf13/cobra/cobra/cmd</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:20:35Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>github.com/spf13/cobra/cobra/cmd</string>
+					<key>platform</key>
+					<string>godoc</string>
+					<key>uniqueIdentifier</key>
+					<string>github.com/spf13/cobra/cobra/cmd</string>
+				</dict>
+			</dict>
+			<key>github.com/spf13/cobra/doc</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:20:35Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>github.com/spf13/cobra/doc</string>
+					<key>platform</key>
+					<string>godoc</string>
+					<key>uniqueIdentifier</key>
+					<string>github.com/spf13/cobra/doc</string>
 				</dict>
 			</dict>
 		</dict>
@@ -173,10 +271,45 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>http://kapeli.com/feeds/Bash.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:25:17Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Go.xml</key>
 			<dict>
 				<key>date</key>
 				<date>2019-12-31T09:54:10Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Man_Pages.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:33:55Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Markdown.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:34:08Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Nginx.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:34:17Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/NodeJS.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:34:20Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/React.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:34:40Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Vim.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2020-01-03T12:34:59Z</date>
 			</dict>
 		</dict>
 		<key>uninstalled</key>
@@ -325,7 +458,16 @@
 	<key>versionedFeeds</key>
 	<dict>
 		<key>installed</key>
-		<dict/>
+		<dict>
+			<key>http://kapeli.com/feeds/Go.xml</key>
+			<dict>
+				<key>1.13.4</key>
+				<dict>
+					<key>date</key>
+					<date>2020-01-03T12:22:46Z</date>
+				</dict>
+			</dict>
+		</dict>
 		<key>uninstalled</key>
 		<dict/>
 	</dict>
