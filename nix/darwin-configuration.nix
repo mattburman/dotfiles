@@ -10,6 +10,7 @@
       pkgs.coreutils-full
       pkgs.curl
       pkgs.dive
+      pkgs.envsubst
       pkgs.fd
       pkgs.fzf
       pkgs.gitAndTools.gitFull
