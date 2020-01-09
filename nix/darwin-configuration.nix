@@ -23,6 +23,7 @@
       pkgs.kubectl
       pkgs.less
       pkgs.m-cli
+      pkgs.mitmproxy
       pkgs.mtr
       pkgs.rsync
       pkgs.skaffold
