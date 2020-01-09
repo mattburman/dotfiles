@@ -20,6 +20,7 @@ if test -e /etc/static/bashrc; then . /etc/static/bashrc; fi 2> /dev/null # impo
 ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
 ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is clean
 
+PATH=$PATH:~/go/bin
 export EDITOR=vim
 export VISUAL=vim
 export SHELL=$(which zsh)
