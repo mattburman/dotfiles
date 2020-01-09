@@ -37,7 +37,7 @@
 			<key>github.com/gocolly/colly</key>
 			<dict>
 				<key>date</key>
-				<date>2020-01-03T12:22:04Z</date>
+				<date>2020-01-04T12:04:47Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -93,7 +93,7 @@
 			<key>github.com/lovoo/goka</key>
 			<dict>
 				<key>date</key>
-				<date>2019-12-31T10:41:29Z</date>
+				<date>2020-01-07T09:36:47Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -121,7 +121,7 @@
 			<key>github.com/lovoo/goka/kafka</key>
 			<dict>
 				<key>date</key>
-				<date>2019-12-31T10:41:29Z</date>
+				<date>2020-01-07T09:36:48Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -163,7 +163,7 @@
 			<key>github.com/spf13/cobra</key>
 			<dict>
 				<key>date</key>
-				<date>2020-01-03T12:20:34Z</date>
+				<date>2020-01-07T09:36:49Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -177,7 +177,7 @@
 			<key>github.com/spf13/cobra/cobra/cmd</key>
 			<dict>
 				<key>date</key>
-				<date>2020-01-03T12:20:35Z</date>
+				<date>2020-01-07T09:36:54Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -343,7 +343,7 @@
 	<key>searchKey</key>
 	<dict>
 		<key>keyCode</key>
-		<integer>2</integer>
+		<integer>29</integer>
 		<key>modifiers</key>
 		<integer>6144</integer>
 	</dict>
