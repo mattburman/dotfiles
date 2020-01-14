@@ -9,3 +9,4 @@ tarrasch/zsh-bd
 wfxr/forgit
 tysonwolker/iterm-tab-colors
 akarzim/zsh-docker-aliases
+# unixorn/warhol.plugin.zsh
