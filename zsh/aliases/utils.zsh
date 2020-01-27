@@ -9,3 +9,9 @@ export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=
 
 alias ungron="gron -u"
 
+alias golint="golangci-lint run --no-config --deadline=30m \
+  --disable-all --enable=deadcode  --enable=gocyclo --enable=golint --enable=varcheck \
+  --enable=structcheck --enable=maligned --enable=errcheck --enable=dupl --enable=ineffassign \
+  --enable=interfacer --enable=unconvert --enable=goconst --enable=gosec --enable=megacheck \
+  --enable=gofmt --concurrency=16"
+
