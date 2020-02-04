@@ -95,7 +95,7 @@ prompt_status() {
 
 prompt_exec() {
   prompt_segment
-  echo -n "%~💲 "
+  echo -n "%~$ "
 }
 
 ## Main prompt
