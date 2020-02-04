@@ -25,7 +25,7 @@
       pkgs.m-cli
       pkgs.mitmproxy
       pkgs.mtr
-      pkgs.yq
+      pkgs.ripgrep
       pkgs.rsync
       pkgs.skaffold
       pkgs.speedtest-cli
@@ -41,6 +41,7 @@
       pkgs.vim
       pkgs.wget
       pkgs.yarn
+      pkgs.yq
       pkgs.zsh
     ];
 
