@@ -2,3 +2,6 @@
 	name = Matt Burman
 	email = matt.burman2@skybettingandgaming.com
 
+[url "ssh://git@stash.skybet.net:7999/"]
+	insteadOf = https://stash.skybet.net/scm/
+
