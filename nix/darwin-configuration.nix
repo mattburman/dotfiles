@@ -25,6 +25,7 @@
       pkgs.m-cli
       pkgs.mitmproxy
       pkgs.mtr
+      pkgs.pandoc
       pkgs.ripgrep
       pkgs.rsync
       pkgs.skaffold
