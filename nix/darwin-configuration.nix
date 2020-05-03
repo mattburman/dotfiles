@@ -22,6 +22,7 @@
       pkgs.jq
       pkgs.kafkacat
       pkgs.kubectl
+      pkgs.languagetool
       pkgs.less
       pkgs.m-cli
       pkgs.mitmproxy
@@ -30,6 +31,8 @@
       pkgs.pandoc
       pkgs.ripgrep
       pkgs.rsync
+      pkgs.shellcheck
+      pkgs.shfmt
       pkgs.skaffold
       pkgs.speedtest-cli
       pkgs.speedtest_cli

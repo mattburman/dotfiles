@@ -16,8 +16,16 @@ let g:ale_fixers = {
 \   'json': ['prettier'],
 \   'css': ['prettier'],
 \   'go': ['gofmt', 'goimports'],
+\   'bash': ['shfmt'],
+\   'sh': ['shfmt'],
 \}
-let g:ale_linters = {'go': ['gometalinter', 'gofmt', 'goimports', 'gopls']}
+let g:ale_linters = {
+\   'go': ['gometalinter', 'gofmt', 'goimports', 'gopls'],
+\   'bash': ['shellcheck'],
+\   'zsh': ['shellcheck'],
+\   'markdown': ['languagetool'],
+\   'text': ['languagetool'],
+\}
 let g:ale_fix_on_save = 1 " fix on save
 let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 200
