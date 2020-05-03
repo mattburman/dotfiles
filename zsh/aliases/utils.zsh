@@ -15,3 +15,5 @@ alias gocheck="golangci-lint run --no-config --deadline=30m \
   --enable=interfacer --enable=unconvert --enable=goconst --enable=gosec --enable=megacheck \
   --enable=gofmt --concurrency=16"
 
+alias vim="nvim"
+

@@ -7,7 +7,7 @@
 - clean: []
 
 - link:
-    ~/.config/nvim: nvim
+    ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/karabiner.edn: karabiner.edn
     ~/.zshrc: zsh/zshrc.zsh
     ~/.zsh:
@@ -20,12 +20,11 @@
     ~/.phoenix.js: phoenix.js
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [antibody bundle < ~/.zsh/zsh_plugins.txt > ~/.zsh_plugins.sh]
-  - [
-      mkdir -p ~/.config/karabiner
-      && touch ~/.config/karabiner/karabiner.json
-      && /usr/local/bin/goku
-      , "Karabiner Elements - ensure Goku profile set"
-    ]
-
+    - [git submodule update --init --recursive, Installing submodules]
+    - [antibody bundle < ~/.zsh/zsh_plugins.txt > ~/.zsh_plugins.sh]
+    - [
+        mkdir -p ~/.config/karabiner
+        && touch ~/.config/karabiner/karabiner.json
+        && /usr/local/bin/goku,
+        "Karabiner Elements - ensure Goku profile set",
+      ]

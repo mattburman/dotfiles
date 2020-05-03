@@ -9,6 +9,7 @@ by taking a `install.conf.yaml` of symlinks and creating them,
 and running shell commands
 
 # Configured
+
 ## (.) karabiner.edn
 
 This file configures `yqrashawn/GokuRakuJoudo`
@@ -21,8 +22,9 @@ This is a list of cask apps that I use to be installed on any fresh builds
 Install via `brew bundle`
 
 ## Nix
-Nix is another package manager. Brew will be installed alongside, with Nix packages taking precedence since it is first in $PATH. In general I will try to install most CLI utils via Nix and any desktop apps via Brew cask.
+
+Nix is another package manager. Brew will be installed alongside, with Nix packages taking precedence since it is first in \$PATH. In general I will try to install most CLI utils via Nix and any desktop apps via Brew cask.
 
 ## LaunchDaemons
-This directory contains LaunchDaemons with it's own README on how to configure
 
+This directory contains LaunchDaemons with it's own README on how to configure

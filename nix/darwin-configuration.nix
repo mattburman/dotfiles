@@ -26,6 +26,7 @@
       pkgs.m-cli
       pkgs.mitmproxy
       pkgs.mtr
+      pkgs.neovim
       pkgs.pandoc
       pkgs.ripgrep
       pkgs.rsync
@@ -39,7 +40,6 @@
       pkgs.tldr
       pkgs.tree
       pkgs.unixtools.watch
-      pkgs.vim
       pkgs.vim
       pkgs.wget
       pkgs.yarn
