@@ -22,13 +22,13 @@
       pkgs.jq
       pkgs.kafkacat
       pkgs.kubectl
-      pkgs.languagetool
       pkgs.less
       pkgs.m-cli
       pkgs.mitmproxy
       pkgs.mtr
       pkgs.neovim
       pkgs.pandoc
+      pkgs.proselint
       pkgs.ripgrep
       pkgs.rsync
       pkgs.shellcheck

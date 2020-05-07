@@ -23,8 +23,8 @@ let g:ale_linters = {
 \   'go': ['gometalinter', 'gofmt', 'goimports', 'gopls'],
 \   'bash': ['shellcheck'],
 \   'zsh': ['shellcheck'],
-\   'markdown': ['languagetool'],
-\   'text': ['languagetool'],
+\   'markdown': ['proselint'],
+\   'text': ['proselint'],
 \}
 let g:ale_fix_on_save = 1 " fix on save
 let g:ale_completion_enabled = 1
