@@ -7,7 +7,7 @@
 - clean: []
 
 - link:
-    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/nvim: nvim
     ~/.config/karabiner.edn: karabiner.edn
     ~/.zshrc: zsh/zshrc.zsh
     ~/.zsh:

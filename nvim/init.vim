@@ -65,6 +65,9 @@ call plug#end()
 
 """ general
 
+" clipbaord
+set clipboard=unnamedplus
+
 " tabbing
 set shiftwidth=2
 set tabstop=2
@@ -85,7 +88,7 @@ set completeopt+=menu,menuone " Completion
 " Navigation / NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-
+set spell spelllang=en_us " spellcheck
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " True color
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
