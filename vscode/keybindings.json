@@ -1,3 +1,12 @@
 // Place your key bindings in this file to override the defaults
 [
+  {
+    "key": "ctrl+alt+=",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "ctrl+alt+-",
+    "command": "workbench.action.navigateBack"
+  },
 ]

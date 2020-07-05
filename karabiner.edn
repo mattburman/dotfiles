@@ -90,7 +90,8 @@
                  [:quote :!TOquote]
                  [:comma :!TOcomma]
                  [:period :!TOperiod]
-                 [:slash :!TOslash]
+                 [:equal_sign :!TOequal_sign]
+                 [:hyphen :!TOhyphen]
                  [:a :!Ta]; ctrl-a start of line
                  [:b :!TOb]
                  [:c :!TOc]

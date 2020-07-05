@@ -1,7 +1,6 @@
 {
     // general
-    "window.zoomLevel": 0,
-    "workbench.colorTheme": "Default High Contrast",
+    "window.zoomLevel": 1,
     "workbench.activityBar.visible": false,
     "editor.minimap.maxColumn": 30,
     "editor.minimap.enabled": false,
@@ -33,5 +32,16 @@
     "go.lintTool": "golangci-lint",
     "go.lintFlags": [
       "--fast"
-    ]
+    ],
+    "editor.tabSize": 2,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.colorTheme": "Dracula",
+    "editor.selectionHighlight": false,
+    "vscodeMarkdownNotes.noteCompletionConvention": "noExtension"
 }
