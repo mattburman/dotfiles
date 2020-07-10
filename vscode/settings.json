@@ -1,6 +1,7 @@
 {
     // general
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Default High Contrast",
     "workbench.activityBar.visible": false,
     "editor.minimap.maxColumn": 30,
     "editor.minimap.enabled": false,
@@ -21,7 +22,7 @@
     "gitlens.blame.toggleMode": "window",
     "gitlens.recentChanges.toggleMode": "window",
     "[yaml]": {
-      "editor.defaultFormatter": "redhat.vscode-yaml"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 
     // Golang
@@ -44,4 +45,6 @@
     "workbench.colorTheme": "Dracula",
     "editor.selectionHighlight": false,
     "vscodeMarkdownNotes.noteCompletionConvention": "noExtension"
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "liveshare.account": ""
 }
