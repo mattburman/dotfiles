@@ -17,3 +17,7 @@ alias gocheck="golangci-lint run --no-config --deadline=30m \
 
 alias vim="nvim"
 
+alias tolower="tr '[:upper:]' '[:lower:]'"
+alias toupper="tr '[:lower:]' '[:upper:]'"
+alias hyphenate="tr ' ' '-'"
+alias tofilename='tolower | hyphenate'
