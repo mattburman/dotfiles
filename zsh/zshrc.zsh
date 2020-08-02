@@ -14,7 +14,7 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 source ~/.zsh/submodules/kubectl-aliases/.kubectl_aliases
 
-source ~/.nix-profile/etc/profile.d/nix.sh
+uname | grep -q "Darwin" && source ~/.nix-profile/etc/profile.d/nix.sh
 if test -e /etc/static/bashrc; then . /etc/static/bashrc; fi 2> /dev/null # import nix bashrc but ignore errors
 
 ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
@@ -90,6 +90,12 @@ prompt_random() {
   echo -n "test"
 }
 
+prompt_hostname() {
+  uname | grep -qv "Linux" && return 0
+  prompt_segment red black
+  echo -n $(hostname)
+}
+
 prompt_status() {
   echo -n "%(?..%F{red}%?%f)"
 }
@@ -102,6 +108,7 @@ prompt_exec() {
 ## Main prompt
 build_prompt() {
   prompt_status
+  prompt_hostname
   prompt_git
   prompt_exec
   prompt_segment
