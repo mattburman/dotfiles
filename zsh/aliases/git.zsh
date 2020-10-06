@@ -261,4 +261,7 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 
 ## completely custom by matt:
 alias gpuoh='git push -u origin HEAD'
-
+function gcmh() {
+  BRANCH=$(git symbolic-ref --short HEAD)
+  git commit -m "[$BRANCH] $1"
+}
