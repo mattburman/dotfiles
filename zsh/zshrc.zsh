@@ -21,6 +21,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is d
 ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is clean
 
 PATH=$PATH:~/go/bin
+PATH=$PATH:.
 alias vim="nvim"
 export EDITOR=vim
 export VISUAL=vim
