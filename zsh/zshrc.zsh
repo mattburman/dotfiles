@@ -92,7 +92,7 @@ prompt_random() {
 }
 
 prompt_hostname() {
-  uname | grep -qv "Linux" && return 0
+  uname | grep -qv "Linux" && return 0 # only prompt if on Linux
   prompt_segment red black
   echo -n $(hostname)
 }
@@ -101,23 +101,40 @@ prompt_status() {
   echo -n "%(?..%F{red}%?%f)"
 }
 
-prompt_exec() {
-  prompt_segment
-  echo -n "%~$ "
+prompt_path() {
+  prompt_segment white black
+  echo -n "%~"
+}
+
+prompt_time() {
+  prompt_segment red black
+  echo -n $(date +'%d/%m %X')
+}
+
+
+# prompt random emoji
+EMOJIS=(😀 🔥 🍭 📚 ✨ 🎁 🍖 💯 🔸 🔺 🔹 🔻 ◽)
+prompt_emoji() {
+  echo -n ${EMOJIS[$RANDOM % ${#EMOJIS[@]} + 1]};
 }
 
 ## Main prompt
 build_prompt() {
+  echo -n "\n"
+  prompt_emoji
   prompt_status
+  prompt_time
   prompt_hostname
   prompt_git
-  prompt_exec
+  prompt_path
   prompt_segment
+  echo -e '\n\033[1m$ \033[0m'
 }
 build_rprompt() {
 }
 
 function precmd {
+  _=$RANDOM # make sure $RANDOM is new each time
   PROMPT="$(build_prompt)"
   RPROMPT="$(build_rprompt)"
 }
