@@ -18,7 +18,8 @@ You need to make sure karabiner-elements has a profile named `Goku` and that it 
 
 ## Brewfile
 
-This is a list of cask apps that I use to be installed on any fresh builds
+This is a list of cask apps that I use to be installed on any fresh builds.
+There are also some cli tools that are not on nix yet.
 Install via `brew bundle`
 
 ## Nix

@@ -2,7 +2,9 @@ cask_args appdir: "/Applications"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
 
+# if these are on nix, move them.
 brew "mas"
+brew "dog"
 
 cask "alfred"
 cask "caffeine"
