@@ -128,13 +128,10 @@ build_prompt() {
   prompt_git
   prompt_path
   prompt_segment
-  echo -e '\n\033[1m$ \033[0m'
-}
-build_rprompt() {
+  echo -e '\n$ '
 }
 
 function precmd {
   _=$RANDOM # make sure $RANDOM is new each time
   PROMPT="$(build_prompt)"
-  RPROMPT="$(build_rprompt)"
 }
