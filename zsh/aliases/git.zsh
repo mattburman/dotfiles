@@ -1,5 +1,4 @@
 ### Stolen from: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
-# Some replaced with https://github.com/wfxr/forgit
 ### (Commented out compdefs)
 #
 # Functions
@@ -35,7 +34,7 @@ function work_in_progress() {
 
 alias g='git'
 
-# alias ga='git add' # using wfxr/forgit instead
+alias ga='git add'
 alias gad='git add'
 alias gaa='git add --all'
 alias gapa='git add --patch'
@@ -68,7 +67,7 @@ alias gcam='git commit -a -m'
 alias gcsm='git commit -s -m'
 alias gcb='git checkout -b'
 alias gcl='git clone --recurse-submodules'
-# alias gclean='git clean -id' using wfxr/forgit instead
+alias gclean='git clean -id'
 alias gpristine='git reset --hard && git clean -dfx'
 alias gcm='git checkout master'
 alias gcd='git checkout develop'
@@ -81,7 +80,7 @@ alias gcpa='git cherry-pick --abort'
 alias gcpc='git cherry-pick --continue'
 alias gcs='git commit -S'
 
-# alias gd='git diff' using wfxr/forgit instead
+alias gd='git diff'
 alias gdf='git diff'
 alias gdca='git diff --cached'
 alias gdcw='git diff --cached --word-diff'
