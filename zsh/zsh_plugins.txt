@@ -1,12 +1,12 @@
 # used by script in dotbot install script
 # generates single fast script to source in zshrc
-lukechilds/zsh-nvm
-zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-completions
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-history-substring-search
-tarrasch/zsh-bd
-wfxr/forgit
-tysonwolker/iterm-tab-colors
 akarzim/zsh-docker-aliases
+lukechilds/zsh-nvm
+olets/zsh-abbr
+tarrasch/zsh-bd
+tysonwolker/iterm-tab-colors
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting
 # unixorn/warhol.plugin.zsh
