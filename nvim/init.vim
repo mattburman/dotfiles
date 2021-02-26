@@ -18,6 +18,9 @@ let g:ale_fixers = {
 \   'go': ['gofmt', 'goimports'],
 \   'bash': ['shfmt'],
 \   'sh': ['shfmt'],
+\   'tf': ['terraform'],
+\   'tfvars': ['terraform'],
+\   'hcl': ['terraform'],
 \}
 let g:ale_linters = {
 \   'go': ['gometalinter', 'gofmt', 'goimports', 'gopls'],
@@ -25,6 +28,9 @@ let g:ale_linters = {
 \   'zsh': ['shellcheck'],
 \   'markdown': ['proselint'],
 \   'text': ['proselint'],
+\   'tf': ['tflint'],
+\   'tfvars': ['tflint'],
+\   'hcl': ['tflint'],
 \}
 let g:ale_fix_on_save = 1 " fix on save
 let g:ale_completion_enabled = 1
@@ -50,6 +56,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale' " Async Lint Engine.
 Plug 'jremmen/vim-ripgrep' " RipGrep in Vim. display results in quickfix list.
+" Plug 'hashivim/vim-terraform' Use ale terraform formatter instead
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'json', 'markdown', 'yaml'] } " Prettier support
