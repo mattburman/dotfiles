@@ -5,6 +5,7 @@ tap "homebrew/cask-versions"
 # if these are on nix, move them.
 brew "mas"
 brew "dog"
+brew "git-delta" # on nix but seems outdated
 
 cask "alfred"
 cask "caffeine"

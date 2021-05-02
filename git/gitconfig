@@ -1,12 +1,32 @@
 [user]
 	name = Matt Burman
 	email = matt@mattburman.com
+
 [includeIf "gitdir:~/c/s/"]
 	path = ~/.gitconfig-sbg
 
 [init]
 	templatedir = ~/.git_template
+
+
 [core]
 	excludesfile = ~/.gitignore_global
+  pager = delta
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
+[delta]
+  theme = Monokai Extended Bright
+  plus-style = "syntax #012800"
+  minus-style = "syntax #340001"
+  navigate = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[rerere]
+	enabled = true
+
+[difftool]
+	prompt = false
