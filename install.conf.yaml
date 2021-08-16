@@ -9,6 +9,7 @@
 - link:
     ~/.config/nvim: nvim
     ~/.config/karabiner.edn: karabiner.edn
+    ~/.config/kitty/kitty.conf: kitty.conf
     ~/.zshrc: zsh/zshrc.zsh
     ~/.zsh:
     ~/.gitignore_global: git/gitignore_global
