@@ -23,6 +23,7 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [antibody bundle < ~/.zsh/zsh_plugins.txt > ~/.zsh_plugins.sh]
+    - [uname | grep -q "Darwin" && brew bundle]
     - [uname -a | grep -q "raspberrypi" && ./debian.sh]
     - [
         uname | grep -q "Darwin"
