@@ -8,6 +8,7 @@ brew "dog"
 brew "git-delta" # on nix but seems outdated
 
 cask "alfred"
+cask "amethyst"
 cask "caffeine"
 cask "dash"
 cask "db-browser-for-sqlite"
