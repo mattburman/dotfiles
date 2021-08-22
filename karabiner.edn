@@ -21,7 +21,8 @@
 {
 :templates {
     :launch "open -a '%s.app'"
-    :alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
+    :alfred "osascript -e 'tell app \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
+    ;; :raycast "osascript -e 'tell app \"System Events\" to keystroke \" \" using {option down}' -e 'tell app \"System Events\" to keystroke \"%s\" & return'"
 }
 :simlayers {
     :vi-mode {:key :d}
@@ -33,9 +34,20 @@
 :main [
     {:des "search mode"
       :rules [:search-mode
-        [:k [:alfred "search km" "iansinnott.keyboardmaestro"]]
-        [:m [:alfred "search menu bar" "com.folded-paper.menu-bar-search"]]
-        [:i [:alfred "search iterm sessions" "com.madvas.iterm-sessions"]]
+        [:f [:!CTOf]] ;; File Search
+        [:m [:!CTOm]] ;; Search Menu Items
+        [:b [:!CTOb]] ;; Search Browser Bookmarks
+        [:n [:!CTOn]] ;; Search Snippets
+        ;; [:j [:!CTOj]] ;; Search Issues (Jira)
+        [:i [:!CTOi]] ;; Search Issues (Github)
+        [:r [:!CTOr]] ;; Search Repositories (Github)
+        [:g [:!CTOg]] ;; Search Google (via Script)
+        ;; [:c [:!CTOc]] ;; Search Contacts
+        ;; [:b [:raycast "S B B"]]
+        ;; [:f [:raycast "F S"]]
+        ;; [:m [:alfred "search menu bar" "com.folded-paper.menu-bar-search"]]
+        ;; [:m [:raycast "S M I"]]
+        ;; [:i [:alfred "search iterm sessions" "com.madvas.iterm-sessions"]]
         [:9 [:alfred "kill process" "com.ngreenstein.alfred-process-killer"]]
         [:q [:alfred "search quiver" "com.cook.quiver"]]
         [:p [:alfred "activate spot_mini" "com.vdesabou.spotify.mini.player"]]
@@ -48,11 +60,11 @@
         [:g [:launch "Google Chrome"]]
         [:f [:launch "Firefox Developer Edition"]]
         [:i [:launch "iTerm"]]
-        [:s [:launch "Slack"]]
-        [:e [:launch "Microsoft Outlook"]]
         [:v [:launch "Visual Studio Code"]]
-        [:j [:launch "intelliJ IDEA"]]
-        [:k [:launch "Keyboard Maestro"]]
+        [:h [:launch "Slack"]]
+        [:j [:launch "Safari"]]
+        [:k [:launch "kitty"]]
+        [:l [:launch "GoLand"]]
       ]
     }
 
@@ -73,6 +85,7 @@
 
     {:des "Window mode [F key as Trigger Key]",
          :rules [:window-mode
+                 ;; all listening to hyper key ctrl-alt-cmd-shift
                  [:h :!!h]
                  [:j :!!j]
                  [:k :!!k]
@@ -93,17 +106,17 @@
                  [:equal_sign :!TOequal_sign]
                  [:hyphen :!TOhyphen]
                  [:a :!Ta]; ctrl-a start of line
-                 [:b :!TOb]
+                 [:b :!Tb]; ctrl-b tmux mode
                  [:c :!TOc]
                  [:d :!TOd]
                  [:e :!Te]; ctrl-e end of line
                  [:f :!TOf]
                  [:g :!TOg]
-                 [:h :!TOh]
                  [:i :!TOi]
-                 [:j :!TOj]
-                 [:k :!TOk]
-                 [:l :!TOl]
+                 [:h :left_arrow]
+                 [:j :down_arrow]
+                 [:k :up_arrow]
+                 [:l :right_arrow]
                  [:m :!TOm]
                  [:n :!TOn]
                  [:o :!TOo]
