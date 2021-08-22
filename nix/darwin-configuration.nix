@@ -12,6 +12,7 @@
       pkgs.dive
       pkgs.envsubst
       pkgs.fd
+      pkgs.findutils
       pkgs.fzf
       pkgs.gitAndTools.gitFull
       pkgs.gitAndTools.hub
@@ -19,12 +20,13 @@
       pkgs.gnused
       pkgs.goku
       pkgs.gron
+      pkgs.iperf
       pkgs.jq
       pkgs.kafkacat
-      pkgs.kubectl
       pkgs.less
       pkgs.m-cli
       pkgs.mitmproxy
+      pkgs.mosh
       pkgs.mtr
       pkgs.neovim
       pkgs.pandoc
