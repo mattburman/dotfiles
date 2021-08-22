@@ -30,8 +30,20 @@
     :search-mode {:key :s}
     :caps_lock-mode {:key :caps_lock}
     :window-mode {:key :f}
+    :amethyst-mode {:key :a}
 }
 :main [
+    {:des "amethyst mode"
+      :rules [:amethyst-mode
+        [:spacebar [:!OSspacebar]] ;; Cycle layout forward
+        [:h [:!OSh]] ;; Shrink main pane
+        [:j [:!OSj]] ;; Move focus counter clockwise
+        [:k [:!OSk]] ;; Move focus clockwise
+        [:l [:!OSl]] ;; Expand main pane
+        [:m [:!OSm]] ;; Move focus to main window
+        [:return_or_enter [:!OSreturn_or_enter]] ;; Swap focused window with main window
+     ]
+    }
     {:des "search mode"
       :rules [:search-mode
         [:f [:!CTOf]] ;; File Search
