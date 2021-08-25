@@ -10,6 +10,8 @@
     ~/.config/nvim: nvim
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/kitty/kitty.conf: kitty.conf
+    ~/.config/limelight/limelightrc: limelightrc
+    ~/Library/LaunchAgents/limelight.plist: LaunchAgents/limelight.plist
     ~/.zshrc: zsh/zshrc.zsh
     ~/.zsh:
     ~/.gitignore_global: git/gitignore_global
@@ -23,6 +25,7 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [antibody bundle < ~/.zsh/zsh_plugins.txt > ~/.zsh_plugins.sh]
+    - [uname | grep -q "Darwin" && make -C limelight && chmod +x limelight/bin/limelight && mv limelight/bin/limelight /usr/local/bin]
     - [uname | grep -q "Darwin" && brew bundle]
     - [uname -a | grep -q "raspberrypi" && ./debian.sh]
     - [
