@@ -46,7 +46,7 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Golang
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " gopls, other stuff
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " gopls, other stuff
 
 
 " Utils
