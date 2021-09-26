@@ -36,6 +36,8 @@
     {:des "amethyst mode"
       :rules [:amethyst-mode
         [:spacebar [:!OSspacebar]] ;; Cycle layout forward
+        [:3 [:!OS3]];;  3-column layout
+        [:f [:!OSf]] ;; fullscreen layout
         [:h [:!OSh]] ;; Shrink main pane
         [:j [:!OSj]] ;; Move focus counter clockwise
         [:k [:!OSk]] ;; Move focus clockwise
