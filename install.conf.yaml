@@ -9,6 +9,7 @@
 - link:
     ~/.config/nvim: nvim
     ~/.config/karabiner.edn: karabiner.edn
+    ~/.amethyst: amethyst.json
     ~/.config/kitty/kitty.conf: kitty.conf
     ~/.config/limelight/limelightrc: limelightrc
     ~/Library/LaunchAgents/limelight.plist: LaunchAgents/limelight.plist
