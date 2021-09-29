@@ -40,6 +40,7 @@
     {:des "amethyst mod1 mode"
       :rules [:amethyst-mod1-mode
        [:spacebar [:!OSspacebar]] ;; cycle-layout
+       [:g [:!OSg]] ;; select-tall-layout
        [:x [:!OSx]] ;; select-wide-layout
        [:s [:!OSs]] ;; select-middle-wide-layout
        [:d [:!OSd]] ;; select-fullscreen-layout
