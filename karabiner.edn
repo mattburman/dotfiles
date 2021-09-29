@@ -27,25 +27,71 @@
 :simlayers {
     :vi-mode {:key :d}
     :launch-mode {:key :w}
-    :search-mode {:key :s}
+    :search-mode {:key :e}
     :caps_lock-mode {:key :caps_lock}
     :window-mode {:key :f}
-    :amethyst-mode {:key :a}
+    :amethyst-mod1-mode {:key :a}
+    :amethyst-mod2-mode {:key :s}
 }
 :main [
-    {:des "amethyst mode"
-      :rules [:amethyst-mode
-        [:spacebar [:!OSspacebar]] ;; Cycle layout forward
-        [:3 [:!OS3]];;  3-column layout
-        [:f [:!OSf]] ;; fullscreen layout
-        [:h [:!OSh]] ;; Shrink main pane
-        [:j [:!OSj]] ;; Move focus counter clockwise
-        [:k [:!OSk]] ;; Move focus clockwise
-        [:l [:!OSl]] ;; Expand main pane
-        [:m [:!OSm]] ;; Move focus to main window
-        [:return_or_enter [:!OSreturn_or_enter]] ;; Swap focused window with main window
+    ;; amethyst modes should be generated using amethyst-to-goku.js
+    ;; with amethyst.json as source of truth
+
+    {:des "amethyst mod1 mode"
+      :rules [:amethyst-mod1-mode
+       [:spacebar [:!OSspacebar]] ;; cycle-layout
+       [:s [:!OSs]] ;; select-wide-layout
+       [:d [:!OSd]] ;; select-fullscreen-layout
+       [:f [:!OSf]] ;; select-column-layout
+       [:p [:!OSp]] ;; focus-screen-ccw
+       [:n [:!OSn]] ;; focus-screen-cw
+       [:w [:!OSw]] ;; focus-screen-1
+       [:e [:!OSe]] ;; focus-screen-2
+       [:r [:!OSr]] ;; focus-screen-3
+       [:q [:!OSq]] ;; focus-screen-4
+       [:h [:!OSh]] ;; shrink-main
+       [:l [:!OSl]] ;; expand-main
+       [:keypad_comma [:!OSkeypad_comma]] ;; increase-main
+       [:keypad_period [:!OSkeypad_period]] ;; decrease-main
+       [:j [:!OSj]] ;; focus-ccw
+       [:k [:!OSk]] ;; focus-cw
+       [:m [:!OSm]] ;; focus-main
+       [:return_or_enter [:!OSreturn_or_enter]] ;; swap-main
+       [:t [:!OSt]] ;; toggle-float
+       [:i [:!OSi]] ;; display-current-layout
+       [:z [:!OSz]] ;; reevaluate-windows
      ]
     }
+
+    {:des "amethyst mod2 mode"
+      :rules [:amethyst-mod2-mode
+       [:spacebar [:!OSTspacebar]] ;; cycle-layout-backward
+       [:w [:!OSTw]] ;; throw-screen-1
+       [:e [:!OSTe]] ;; throw-screen-2
+       [:r [:!OSTr]] ;; throw-screen-3
+       [:q [:!OSTq]] ;; throw-screen-4
+       [:h [:!OSTh]] ;; swap-screen-ccw
+       [:l [:!OSTl]] ;; swap-screen-cw
+       [:j [:!OSTj]] ;; swap-ccw
+       [:k [:!OSTk]] ;; swap-cw
+       [:1 [:!OST1]] ;; throw-space-1
+       [:2 [:!OST2]] ;; throw-space-2
+       [:3 [:!OST3]] ;; throw-space-3
+       [:4 [:!OST4]] ;; throw-space-4
+       [:5 [:!OST5]] ;; throw-space-5
+       [:6 [:!OST6]] ;; throw-space-6
+       [:7 [:!OST7]] ;; throw-space-7
+       [:8 [:!OST8]] ;; throw-space-8
+       [:9 [:!OST9]] ;; throw-space-9
+       [:0 [:!OST0]] ;; throw-space-10
+       [:left_arrow [:!OSTleft_arrow]] ;; throw-space-left
+       [:right_arrow [:!OSTright_arrow]] ;; throw-space-right
+       [:t [:!OSTt]] ;; toggle-tiling
+       [:x [:!OSTx]] ;; toggle-focus-follows-mouse
+       [:z [:!OSTz]] ;; relaunch-amethyst
+     ]
+    }
+
     {:des "search mode"
       :rules [:search-mode
         [:f [:!CTOf]] ;; File Search
