@@ -44,7 +44,9 @@
        [:x [:!OSx]] ;; select-wide-layout
        [:s [:!OSs]] ;; select-middle-wide-layout
        [:d [:!OSd]] ;; select-fullscreen-layout
+       [:u [:!OSu]] ;; select-floating-layout
        [:f [:!OSf]] ;; select-column-layout
+       [:2 [:!OS2]] ;; select-two-pane
        [:p [:!OSp]] ;; focus-screen-ccw
        [:n [:!OSn]] ;; focus-screen-cw
        [:w [:!OSw]] ;; focus-screen-1

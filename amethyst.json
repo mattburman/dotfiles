@@ -1,5 +1,13 @@
 {
-  "layouts": ["tall", "wide", "fullscreen", "column", "middle-wide"],
+  "layouts": [
+    "tall",
+    "wide",
+    "fullscreen",
+    "column",
+    "middle-wide",
+    "floating",
+    "two-pane"
+  ],
   "Valid modifiers are": ["option", "shift", "control", "command"],
   "mod1": ["option", "shift"],
   "mod2": ["option", "shift", "control"],
@@ -28,9 +36,17 @@
     "mod": "mod1",
     "key": "d"
   },
+  "select-floating-layout": {
+    "mod": "mod1",
+    "key": "u"
+  },
   "select-column-layout": {
     "mod": "mod1",
     "key": "f"
+  },
+  "select-two-pane-layout": {
+    "mod": "mod1",
+    "key": "2"
   },
   "focus-screen-ccw": {
     "mod": "mod1",
@@ -192,11 +208,12 @@
     "mod": "mod2",
     "key": "z"
   },
-  "floating": [],
+  "floating": ["com.apple.systempreferences", "com.lastpass.LastPass"],
   "floating-is-blacklist": true,
   "float-small-windows": true,
   "mouse-follows-focus": false,
   "focus-follows-mouse": false,
+  "mouse-swaps-windows": true,
   "enables-layout-hud": true,
   "enables-layout-hud-on-space-change": true,
   "window-margin-size": 0,
@@ -205,7 +222,7 @@
   "window-minimum-height": 0,
   "window-minimum-width": 0,
   "ignore-menu-bar": false,
-  "use-canary-build": false,
+  "use-canary-build": true,
   "new-windows-to-main": false,
   "follow-space-thrown-windows": true,
   "send-crash-reports": false,
