@@ -2,8 +2,8 @@
 	name = Matt Burman
 	email = matt@mattburman.com
 
-[includeIf "gitdir:~/c/s/"]
-	path = ~/.gitconfig-sbg
+[includeIf "gitdir:~/c/w/"]
+	path = ~/.gitconfig-w
 
 [init]
 	templatedir = ~/.git_template
