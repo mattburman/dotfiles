@@ -17,8 +17,8 @@
       pkgs.gitAndTools.gitFull
       pkgs.gitAndTools.hub
       pkgs.gnugrep
+      pkgs.gnupg
       pkgs.gnused
-      pkgs.goku
       pkgs.gron
       pkgs.iperf
       pkgs.jq
