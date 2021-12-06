@@ -1,0 +1,27 @@
+#!/usr/bin/env osascript
+
+property theApplication: "Google Chrome"
+property w: 1280
+property h: 720
+
+on run argv
+  if (count of argv) > 0 then
+    set w to item 1 of argv
+  end if
+
+  if count of argv > 1 then
+    set h to item 2 of argv
+  end if
+
+  if count of argv > 2 then
+    set theApplication to item 3 of argv
+  end if
+
+
+  tell application theApplication
+    set winBounds to bounds of front window
+    set winx to item 1 of winBounds
+    set winy to item 2 of winBounds
+    set bounds of front window to {winx, winy, w + winx, h + winy}
+  end tell
+end run

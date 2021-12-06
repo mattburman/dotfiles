@@ -2,6 +2,10 @@ alias cgrep="grep --color=always"
 alias mk="make"
 alias dogall="dog A NS MX TXT CNAME SOA"
 
+alias v="nvim"
+
+alias tm="tmux"
+
 # does alias expansion https://blog.mact.me/2012/09/06/using-watch-with-a-bash-alias
 alias watch="watch -n 1 "
 
