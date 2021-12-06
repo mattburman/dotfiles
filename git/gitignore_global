@@ -89,3 +89,6 @@ tags
 **/*nfsvolumes.yml
 **/*nfsvolumes.yaml
 **/*nfsvolumes.patch # ignore saving/reloading any nfs volume overrides
+
+# data directories for messing around
+mbdata
