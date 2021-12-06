@@ -24,9 +24,12 @@ if test -e /etc/static/bashrc; then . /etc/static/bashrc; fi 2> /dev/null # impo
 ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
 ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is clean
 
-PATH=$PATH:~/go/bin
-PATH=$PATH:.
-PATH=$PATH:$DOTFILES/zsh/path
+export PATH=$PATH:.
+export PATH=$PATH:$DOTFILES/zsh/path
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
 alias vim="nvim"
 alias v="nvim"
 export EDITOR=vim
