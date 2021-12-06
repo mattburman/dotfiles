@@ -1,7 +1,7 @@
 # Installing
 ## To make these launch on boot
 
-`$ sudo ln -s ~/.config/LaunchDaemons/<file> /Library/LaunchDaemons/<file>`
+`$ sudo ln -s ~/dotfiles/LaunchDaemons/<file> /Library/LaunchDaemons/<file>`
 `$ sudo chmod 0644 <file>`
 `$ sudo chown root:wheel <file>`
 
