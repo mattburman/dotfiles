@@ -265,3 +265,13 @@ function gcmh() {
   BRANCH=$(git symbolic-ref --short HEAD)
   git commit -m "[$BRANCH] $1"
 }
+
+alias glogmh='git log --oneline --decorate --graph master..HEAD'
+alias glgmh='git log --stat master..HEAD'
+alias gshs='git show --stat'
+alias gshsmh='git show --stat master..HEAD'
+alias grbim='git rebase -i master'
+alias gcom='git checkout master'
+alias gco-='git checkout -'
+
+alias grl='git reflog'
