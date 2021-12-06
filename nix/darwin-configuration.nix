@@ -14,12 +14,15 @@
       pkgs.fd
       pkgs.findutils
       pkgs.fzf
+      pkgs.gawk
+      pkgs.gcc
       pkgs.gitAndTools.gitFull
       pkgs.gitAndTools.hub
       pkgs.gnugrep
       pkgs.gnupg
       pkgs.gnused
       pkgs.gron
+      pkgs.htop
       pkgs.iperf
       pkgs.jq
       pkgs.kafkacat
@@ -31,6 +34,7 @@
       pkgs.neovim
       pkgs.pandoc
       pkgs.proselint
+      pkgs.redis
       pkgs.ripgrep
       pkgs.rsync
       pkgs.shellcheck
@@ -47,7 +51,6 @@
       pkgs.unixtools.watch
       pkgs.vim
       pkgs.wget
-      pkgs.yarn
       pkgs.yq
       pkgs.zsh
     ];
