@@ -1,12 +1,12 @@
 [submodule "dotbot"]
 	path = dotbot
-	url = git@github.com:anishathalye/dotbot.git
+	url = https://github.com/anishathalye/dotbot
 [submodule "zsh/submodules/fzf"]
 	path = zsh/submodules/fzf
-	url = git@github.com:junegunn/fzf.git
+	url = https://github.com/junegunn/fzf
 [submodule "zsh/submodules/kubectl-aliases"]
 	path = zsh/submodules/kubectl-aliases
-	url = git@github.com:ahmetb/kubectl-aliases.git
+	url = https://github.com/ahmetb/kubectl-aliases
 [submodule "limelight"]
 	path = limelight
-	url = git@github.com:koekeishiya/limelight.git
+	url = https://github.com/koekeishiya/limelight
