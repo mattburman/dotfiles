@@ -266,6 +266,8 @@ function gcmh() {
   git commit -m "[$BRANCH] $1"
 }
 
+alias glom='git pull origin master'
+
 alias glogmh='git log --oneline --decorate --graph master..HEAD'
 alias glgmh='git log --stat master..HEAD'
 alias gshs='git show --stat'
