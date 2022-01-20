@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // convert ~/.amethyst json to goku keybind format so we can bind with a single key rather than multiple
 
 const json = require("./amethyst.json");
@@ -6,8 +7,8 @@ const keybinds = { mod1: [], mod2: [] };
 
 // map amethyst.json key to karabiner/goku key_code.
 const symbols = {
-  ",": "keypad_comma",
-  ".": "keypad_period",
+  ",": "comma",
+  ".": "period",
   enter: "return_or_enter",
   space: "spacebar",
   left: "left_arrow",

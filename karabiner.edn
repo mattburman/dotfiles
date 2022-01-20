@@ -46,7 +46,7 @@
        [:d [:!OSd]] ;; select-fullscreen-layout
        [:u [:!OSu]] ;; select-floating-layout
        [:f [:!OSf]] ;; select-column-layout
-       [:2 [:!OS2]] ;; select-two-pane
+       [:2 [:!OS2]] ;; select-two-pane-layout
        [:p [:!OSp]] ;; focus-screen-ccw
        [:n [:!OSn]] ;; focus-screen-cw
        [:w [:!OSw]] ;; focus-screen-1
@@ -55,8 +55,8 @@
        [:q [:!OSq]] ;; focus-screen-4
        [:h [:!OSh]] ;; shrink-main
        [:l [:!OSl]] ;; expand-main
-       [:keypad_comma [:!OSkeypad_comma]] ;; increase-main
-       [:keypad_period [:!OSkeypad_period]] ;; decrease-main
+       [:comma [:!OScomma]] ;; increase-main
+       [:period [:!OSperiod]] ;; decrease-main
        [:j [:!OSj]] ;; focus-ccw
        [:k [:!OSk]] ;; focus-cw
        [:m [:!OSm]] ;; focus-main
