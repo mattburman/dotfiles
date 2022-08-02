@@ -6,6 +6,7 @@ tap "homebrew/cask-versions"
 brew "mas"
 brew "dog"
 brew "git-delta" # on nix but seems outdated
+brew "koekeishiya/formulae/yabai"
 
 cask "alfred"
 cask "amethyst"
