@@ -23,7 +23,6 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 source ~/.zsh/submodules/kubectl-aliases/.kubectl_aliases
 
-uname | grep -q "Darwin" && source ~/.nix-profile/etc/profile.d/nix.sh
 if test -e /etc/static/bashrc; then . /etc/static/bashrc; fi 2> /dev/null # import nix bashrc but ignore errors
 
 ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
@@ -154,3 +153,5 @@ function precmd {
   _=$RANDOM # make sure $RANDOM is new each time
   PROMPT="$(build_prompt)"
 }
+
+uname | grep -q "Darwin" && source ~/.zsh/darwin.zsh

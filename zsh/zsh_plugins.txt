@@ -4,7 +4,6 @@ akarzim/zsh-docker-aliases
 lukechilds/zsh-nvm
 olets/zsh-abbr
 tarrasch/zsh-bd
-tysonwolker/iterm-tab-colors
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
