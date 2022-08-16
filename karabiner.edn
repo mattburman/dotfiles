@@ -26,39 +26,40 @@
 }
 :simlayers {
     :vi-mode {:key :d}
-    :launch-mode {:key :w}
+    :window-mode {:key :a}
     :search-mode {:key :e}
     :caps_lock-mode {:key :caps_lock}
-    :window-mode {:key :f}
-    :amethyst-mod1-mode {:key :a}
+    :amethyst-mod1-mode {:key :q}
     :amethyst-mod2-mode {:key :s}
 }
 :main [
     ;; amethyst modes should be generated using amethyst-to-goku.js
     ;; with amethyst.json as source of truth
+    ;; :r!./amethyst-to-goku.js
+
+
+
 
     {:des "amethyst mod1 mode"
       :rules [:amethyst-mod1-mode
        [:spacebar [:!OSspacebar]] ;; cycle-layout
        [:g [:!OSg]] ;; select-tall-layout
        [:x [:!OSx]] ;; select-wide-layout
-       [:s [:!OSs]] ;; select-middle-wide-layout
-       [:d [:!OSd]] ;; select-fullscreen-layout
+       [:3 [:!OS3]] ;; select-middle-wide-layout
+       [:4 [:!OS4]] ;; select-fullscreen-layout
        [:u [:!OSu]] ;; select-floating-layout
-       [:f [:!OSf]] ;; select-column-layout
        [:2 [:!OS2]] ;; select-two-pane-layout
        [:p [:!OSp]] ;; focus-screen-ccw
        [:n [:!OSn]] ;; focus-screen-cw
        [:w [:!OSw]] ;; focus-screen-1
        [:e [:!OSe]] ;; focus-screen-2
        [:r [:!OSr]] ;; focus-screen-3
-       [:q [:!OSq]] ;; focus-screen-4
        [:h [:!OSh]] ;; shrink-main
        [:l [:!OSl]] ;; expand-main
        [:comma [:!OScomma]] ;; increase-main
        [:period [:!OSperiod]] ;; decrease-main
-       [:j [:!OSj]] ;; focus-ccw
-       [:k [:!OSk]] ;; focus-cw
+       [:k [:!OSk]] ;; focus-ccw
+       [:j [:!OSj]] ;; focus-cw
        [:m [:!OSm]] ;; focus-main
        [:return_or_enter [:!OSreturn_or_enter]] ;; swap-main
        [:t [:!OSt]] ;; toggle-float
@@ -96,6 +97,8 @@
      ]
     }
 
+    ;; end amethyst section
+
     {:des "search mode"
       :rules [:search-mode
         [:f [:!CTOf]] ;; File Search
@@ -119,20 +122,6 @@
      ]
     }
 
-    {:des "launcher mode"
-      :rules [:launch-mode
-        [:g [:launch "Google Chrome"]]
-        [:f [:launch "Firefox Developer Edition"]]
-        [:i [:launch "iTerm"]]
-        [:v [:launch "Visual Studio Code"]]
-        [:h [:launch "Slack"]]
-        [:j [:launch "Safari"]]
-        [:k [:launch "kitty"]]
-        [:l [:launch "GoLand"]]
-      ]
-    }
-
-    ;; vi mode with d key
     {:des "Vi Mode [D as Trigger Key]"
       :rules [:vi-mode
         [:##j :down_arrow]
@@ -147,17 +136,35 @@
       ]
     }
 
-    {:des "Window mode [F key as Trigger Key]",
-         :rules [:window-mode
-                 ;; all listening to hyper key ctrl-alt-cmd-shift
-                 [:h :!!h]
-                 [:j :!!j]
-                 [:k :!!k]
-                 [:l :!!l]
-                 [:m :!!m]
-                 [:b :!!b]
-                 [:e :!!e]
-                 ]}
+    {:des "Window mode [A key as Trigger Key]",
+     :rules [:window-mode
+        ;; copy from amethyst mode 1
+        [:t [:!OSt]] ;; toggle-float
+        [:4 [:!OS4]] ;; select-fullscreen-layout
+        [:3 [:!OS3]] ;; select-middle-wide-layout
+        [:2 [:!OS2]] ;; select-two-pane-layout
+        [:spacebar [:!OSspacebar]] ;; cycle-layout
+
+        ;; copy from amethyst mode 2
+        [:h [:!OSh]] ;; shrink-main
+        [:l [:!OSl]] ;; expand-main
+        [:return_or_enter [:!OSreturn_or_enter]] ;; swap-main
+
+        ;; semicolon alias for swap-main
+        [:semicolon [:!OSreturn_or_enter]] ;; swap-main
+
+        ;; windows
+        [:g [:launch "Google Chrome"]]
+        [:s [:launch "Slack"]]
+        [:k [:launch "kitty"]]
+        [:j [:launch "GoLand"]]
+        [:n [:launch "Notes"]]
+        [:v [:launch "Visual Studio Code"]]
+        [:x [:launch "1Password"]]
+        [:d [:launch "1Password"]]
+        [:f [:launch "Finder"]]
+      ]
+    }
 
     {:des "Caps mode",
          :rules [:caps_lock-mode

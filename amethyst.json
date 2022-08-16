@@ -1,12 +1,9 @@
 {
   "layouts": [
-    "tall",
-    "wide",
     "fullscreen",
-    "column",
+    "two-pane",
     "middle-wide",
-    "floating",
-    "two-pane"
+    "floating"
   ],
   "Valid modifiers are": ["option", "shift", "control", "command"],
   "mod1": ["option", "shift"],
@@ -30,19 +27,15 @@
   },
   "select-middle-wide-layout": {
     "mod": "mod1",
-    "key": "s"
+    "key": "3"
   },
   "select-fullscreen-layout": {
     "mod": "mod1",
-    "key": "d"
+    "key": "4"
   },
   "select-floating-layout": {
     "mod": "mod1",
     "key": "u"
-  },
-  "select-column-layout": {
-    "mod": "mod1",
-    "key": "f"
   },
   "select-two-pane-layout": {
     "mod": "mod1",
@@ -67,10 +60,6 @@
   "focus-screen-3": {
     "mod": "mod1",
     "key": "r"
-  },
-  "focus-screen-4": {
-    "mod": "mod1",
-    "key": "q"
   },
   "throw-screen-1": {
     "mod": "mod2",
