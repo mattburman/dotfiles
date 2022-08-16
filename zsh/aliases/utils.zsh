@@ -27,3 +27,9 @@ alias tolower="tr '[:upper:]' '[:lower:]'"
 alias toupper="tr '[:lower:]' '[:upper:]'"
 alias hyphenate="tr ' ' '-'"
 alias tofilename='tolower | hyphenate'
+
+function ia-save() {
+  curl -s -I "https://web.archive.org/save/$1" | \
+  egrep '^location:' | \
+  awk '{ print $2 }';
+}
