@@ -161,8 +161,9 @@
         [:n [:launch "Notes"]]
         [:v [:launch "Visual Studio Code"]]
         [:x [:launch "1Password"]]
-        [:d [:launch "1Password"]]
+        [:d [:launch "Cryptowatch Desktop"]]
         [:f [:launch "Finder"]]
+        [:b {:key :tab :modi :command}]
       ]
     }
 
