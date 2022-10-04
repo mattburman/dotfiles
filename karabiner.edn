@@ -163,6 +163,7 @@
         [:x [:launch "1Password"]]
         [:d [:launch "Cryptowatch Desktop"]]
         [:f [:launch "Finder"]]
+        [:o [:launch "2Do"]]
         [:b {:key :tab :modi :command}]
       ]
     }
