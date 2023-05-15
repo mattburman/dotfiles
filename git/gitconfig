@@ -2,24 +2,29 @@
 	name = Matt Burman
 	email = matt@mattburman.com
 
-[includeIf "gitdir:~/c/w/"]
+[includeIf "gitdir:~/src/"]
+	path = ~/.gitconfig-w
+
+[includeIf "gitdir:~/c/w"]
 	path = ~/.gitconfig-w
 
 [init]
-	templatedir = ~/.git_template
+	templatedir = ~/.git-template
 
 
 [core]
 	excludesfile = ~/.gitignore_global
   pager = delta
+	editor = nvim
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
 [delta]
-  theme = Monokai Extended Bright
-  plus-style = "syntax #012800"
-  minus-style = "syntax #340001"
+  theme = "Monokai Extended"
+  # plus-style = "syntax #012800"
+  # minus-style = "syntax #340001"
+  light = true
   navigate = true
 
 [interactive]

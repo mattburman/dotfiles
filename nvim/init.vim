@@ -5,6 +5,19 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Word wrapping guides - git commits etc.
+" Force the cursor onto a new line after 80 characters
+set textwidth=80
+" However, in Git commit messages, let’s make it 72 characters
+autocmd FileType gitcommit set textwidth=72
+" Colour the 81st (or 73rd) column so that we don’t type over our limit
+set colorcolumn=+1
+" In Git commit messages, also colour the 51st column (for titles)
+autocmd FileType gitcommit set colorcolumn+=51
+
+" js colours for jsonl
+autocmd BufNewFile,BufRead *.jsonl set ft=javascript
+
 
 """ ale config before it loads
 " let g:ale_completion_enabled = 1
@@ -44,6 +57,7 @@ call plug#begin()
 " color schemes
 Plug 'whatyouhide/vim-gotham'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'jjo/vim-cue'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " gopls, other stuff
@@ -95,7 +109,7 @@ set completeopt+=menu,menuone " Completion
 " Navigation / NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-set spell spelllang=en_us " spellcheck
+" set spell spelllang=en_us " spellcheck
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " True color
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

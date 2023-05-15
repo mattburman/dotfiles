@@ -1,47 +1,59 @@
 { config, pkgs, ... }:
 
 {
+  services.nix-daemon.enable = true;
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [
-      pkgs.antibody
+      # pkgs.antibody
       pkgs.bash_5
+      pkgs.colordiff
       pkgs.coreutils-full
       pkgs.curl
       pkgs.dive
       pkgs.envsubst
       pkgs.fd
       pkgs.findutils
+      pkgs.fx
       pkgs.fzf
       pkgs.gawk
       pkgs.gcc
       pkgs.gitAndTools.gitFull
-      pkgs.gitAndTools.hub
+      # pkgs.gitAndTools.hub
       pkgs.gnugrep
       pkgs.gnupg
+      pkgs.gnuplot
       pkgs.gnused
+      pkgs.goku
+      pkgs.graphviz
       pkgs.gron
       pkgs.htop
       pkgs.iperf
+      pkgs.joker
+      pkgs.jira-cli-go
       pkgs.jq
       pkgs.kafkacat
       pkgs.less
       pkgs.m-cli
-      pkgs.mitmproxy
+      # pkgs.mitmproxy
       pkgs.mosh
       pkgs.mtr
       pkgs.neovim
+      pkgs.openssh
       pkgs.pandoc
       pkgs.proselint
+      pkgs.python3
       pkgs.redis
       pkgs.ripgrep
       pkgs.rsync
+      pkgs.s3cmd
+      pkgs.s4cmd
       pkgs.shellcheck
       pkgs.shfmt
       pkgs.skaffold
+      pkgs.socat
       pkgs.speedtest-cli
-      pkgs.speedtest_cli
       pkgs.sqlite
       pkgs.sqlite-replication
       pkgs.stern
@@ -51,7 +63,7 @@
       pkgs.unixtools.watch
       pkgs.vim
       pkgs.wget
-      pkgs.yq
+      # pkgs.yq
       pkgs.zsh
     ];
 

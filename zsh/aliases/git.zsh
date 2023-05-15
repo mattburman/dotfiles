@@ -36,6 +36,7 @@ alias g='git'
 
 alias ga='git add'
 alias gad='git add'
+alias gadp='git add --patch'
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gau='git add --update'
@@ -227,6 +228,9 @@ alias gsps='git show --pretty=short --show-signature'
 alias gsr='git svn rebase'
 alias gst='git status'
 
+alias gshs='git show -s'
+alias gshsfb='git show -s --format=%B'
+
 # use the default stash push on git 2.13 and newer
 autoload -Uz is-at-least
 is-at-least 2.13 "$(git --version 2>/dev/null | awk '{print $3}')" \
@@ -266,14 +270,58 @@ function gcmh() {
   git commit -m "[$BRANCH] $1"
 }
 
+function gcos () {
+  git checkout $(git branch --sort=-committerdate | grep -v "$(git branch --show-current)" | grep -i -m 1 "$1")
+}
+
+
 alias glom='git pull origin master'
 
 alias glogmh='git log --oneline --decorate --graph master..HEAD'
 alias glgmh='git log --stat master..HEAD'
 alias gshs='git show --stat'
 alias gshsmh='git show --stat master..HEAD'
+
+function gcmrf() {
+  git commit -m "(mr fix will squash) $*"
+}
+
+alias gfom='git fetch origin master'
+alias grbm='git rebase master'
 alias grbim='git rebase -i master'
+alias grbom='git rebase origin/master'
+alias grbiom='git rebase -i origin/master'
+
 alias gcom='git checkout master'
 alias gco-='git checkout -'
 
 alias grl='git reflog'
+
+alias grsh1='git reset HEAD~1'
+
+# git rebase master with stash, fetch master and stash pop
+function grbomsf() {
+  git stash -m "tmp-pre-rb"
+  gfom
+  grbom
+
+  gcom
+  gl || 1
+  gco-
+
+  git stash list | grep "tmp-pre-rb" && git stash pop --index
+}
+
+# git rebase master interactively with stash, fetch master and stash pop
+function grbiomsf() {
+  git stash -m "tmp-pre-rb"
+
+  gfom
+  grbiom
+
+  gcom
+  gl || 1
+  gco-
+
+  git stash list | grep "tmp-pre-rb" && git stash pop --index
+}

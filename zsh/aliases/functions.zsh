@@ -12,3 +12,10 @@ function updateall() {
   echo "⚡ Updating mas apps: "
   mas upgrade
 }
+
+# save url at arg to internet archive
+function ia-save() {
+  curl -s -I "https://web.archive.org/save/$1" | \
+  egrep '^location:' | \
+  awk '{ print $2 }';
+}
