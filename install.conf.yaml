@@ -8,6 +8,7 @@
 
 - link:
     ~/.config/nvim: nvim
+    ~/.ideavimrc: ideavimrc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/yabai/yabairc: yabairc
     ~/.amethyst: amethyst.json
@@ -18,15 +19,15 @@
     ~/.gitignore_global: git/gitignore_global
     ~/.gitconfig: git/gitconfig
     ~/.git-template: git/git-template
-    ~/.gitconfig-sbg: git/gitconfig-sbg
     ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
     ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json
     ~/.nixpkgs/darwin-configuration.nix: nix/darwin-configuration.nix
     ~/.phoenix.js: phoenix.js
+    ~/.fdignore: fdignore
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [antibody bundle < ~/.zsh/zsh_plugins.txt > ~/.zsh_plugins.sh]
+    - [antibody bundle < ~/.zsh/zsh_plugins.txt > ~/.zsh_plugins.sh] # archived but still works for now
     - [uname | grep -q "Darwin" && brew bundle]
     - [uname | grep -q "Darwin" && brew services start yabai]
     - [uname -a | grep -q "raspberrypi" && ./debian.sh]

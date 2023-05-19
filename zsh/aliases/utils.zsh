@@ -74,3 +74,5 @@ alias grep-urls='grep -Eo "(http|https|ws|wss)://[a-zA-Z0-9./?=_:-]*(#\S*)?"'
 alias grep-ips="grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'"
 
 alias sed-host="sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/'"
+
+alias ia-save-cb='ia-save "$(pbpaste)"'

@@ -6,8 +6,8 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [
-      # pkgs.antibody
       pkgs.bash_5
+      pkgs.bat
       pkgs.colordiff
       pkgs.coreutils-full
       pkgs.curl
@@ -18,7 +18,7 @@
       pkgs.fx
       pkgs.fzf
       pkgs.gawk
-      pkgs.gcc
+      #pkgs.gcc
       pkgs.gitAndTools.gitFull
       # pkgs.gitAndTools.hub
       pkgs.gnugrep

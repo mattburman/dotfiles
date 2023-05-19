@@ -34,6 +34,7 @@ let g:ale_fixers = {
 \   'tf': ['terraform'],
 \   'tfvars': ['terraform'],
 \   'hcl': ['terraform'],
+\   'rust': ['rustfmt'],
 \}
 let g:ale_linters = {
 \   'go': ['gometalinter', 'gofmt', 'goimports', 'gopls'],
@@ -44,50 +45,173 @@ let g:ale_linters = {
 \   'tf': ['tflint'],
 \   'tfvars': ['tflint'],
 \   'hcl': ['tflint'],
+\   'rust': ['cargo', 'analyzer'],
 \}
+let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 let g:ale_fix_on_save = 1 " fix on save
 let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 200
 
 " call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
+"""IDEAVIMCOMMON
+nnoremap <Space>n :NERDTreeToggle<CR>
+" remove need to shift to enter command. TODO fix clash with repeat.vim.
+nnoremap ; :
+vnoremap ; :
+nnoremap <Space>x :x<cr>
+nnoremap <Space>u :up<cr>
+set hls incsearch " highlight search and incrementally while typing.
+nnoremap <Space><Space> <C-w>
+"""IDEAVIMCOMMON
+
+"""IDEAVIMLIKE
+nnoremap <Space>f :Files<CR>
+ " todo lang-specific
+nnoremap zr :update<cr>:!rr<Enter>
+nnoremap <Space>l :ALEFix<cr>
+nnoremap <Space>b :ALEGoToDefinition<cr>
+
+nnoremap <Space>e :History<cr>
+nnoremap <Space>a :Commands<cr>
+nnoremap <Space>r :ALERename<cr>
+nnoremap <Space>p :ALEPopulateLocList<cr>
+" nnoremap ss :update<cr>
+"""END IDEAVIMLIKE
+nnoremap <Space>; :History:<cr>
+
 " Install plugins
 call plug#begin()
+"""PLUGSHARED
+Plug 'preservim/nerdtree' " map to IDEA file tree bindings eg hjkl navigation etc.
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'justinmk/vim-sneak' " Plugin must be installed manually for IDEAvim.
+let g:sneak#label = 1
+Plug 'unblevable/quick-scope' " Plugin must be installed manually for IDEAvim.
+" Plug 'tpope/vim-surround'
+Plug 'tommcdo/vim-exchange'
+Plug 'chrisbra/matchit'
+Plug 'tpope/vim-repeat'
+"""ENDPLUGSHARED
 
 " color schemes
 Plug 'whatyouhide/vim-gotham'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'jjo/vim-cue'
+Plug 'TaDaa/vimade' " dim inactive
+let g:vimade = {}
+let g:vimade.fadelevel = 0.7
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " gopls, other stuff
 
 
 " Utils
-Plug 'preservim/nerdtree' " file browser
+Plug 'preservim/nerdtree' " file browser. also in ideavim.
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'w0rp/ale' " Async Lint Engine.
+
+Plug 'dense-analysis/ale' " Async Lint Engine.
+
+
+
+" coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Insert <tab> when previous text is space, refresh completion if not.
+inoremap <silent><expr> <TAB>
+\ coc#pum#visible() ? coc#pum#next(1):
+\ CheckBackspace() ? "\<Tab>" :
+\ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Use <c-space> to trigger completion: >
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+" Use <CR> to confirm completion, use: >
+
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+
+"To make <CR> to confirm selection of selected complete item or notify coc.nvim
+" to format on enter, use:
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Map <tab> for trigger completion, completion confirm, snippet expand and jump
+" like VSCode: >
+
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ CheckBackspace() ? "\<TAB>" :
+  \ coc#refresh()
+
+let g:coc_snippet_next = '<tab>'
+
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
 Plug 'jremmen/vim-ripgrep' " RipGrep in Vim. display results in quickfix list.
 " Plug 'hashivim/vim-terraform' Use ale terraform formatter instead
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'json', 'markdown', 'yaml'] } " Prettier support
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Nix
 Plug 'LnL7/vim-nix', { 'for': 'nix' } " Vim configuration files for Nix.
+
+" Rust
+Plug 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1
+syntax enable
+filetype plugin indent on
+
+" Plug 'simrat39/rust-tools.nvim' TODO
 
 " Git
 Plug 'mhinz/vim-signify' " sign diff in first column
 Plug 'tpope/vim-fugitive' " Git in vim
 
+" Comments
+Plug 'tpope/vim-commentary'
+
 call plug#end()
+
 
 """ general
 
+set nu
+set title " terminal title
+set cmdheight=1
+set noshowmode " dont show INSERT / VISUAL LINE, etc
+set ignorecase " in search
+set smartcase " .. but not when search pattern contains upper case characters
+
+
 " clipbaord
 set clipboard=unnamedplus
+set shellcmdflag=-ic
 
 " tabbing
 set shiftwidth=2
@@ -107,6 +231,7 @@ set termguicolors " Enable true colors support
 set completeopt+=menu,menuone " Completion
 
 " Navigation / NERDTree
+Plug 'preservim/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 
 " set spell spelllang=en_us " spellcheck

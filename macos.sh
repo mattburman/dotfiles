@@ -1,7 +1,11 @@
 ## manual things
 
 # disable cmd-h for required applications in Keyboard > Shortcuts > App Shortcuts
-# e.g. kitty, iterm2
+# e.g. kitty
+# this may also automatically work:
+app="kitty"
+bundle=$(lsappinfo info -only bundleid "$app" | cut -d '"' -f4)
+defaults write "$bundle" NSUserKeyEquivalents -dict-add "Hide $app" nil
 # disable "Search man page index in Terminal" shift-cmd-A which conflicts with intellij
 # disable spotlight index for things like node_modules in System Preferences > Spotlight > Privacy
 

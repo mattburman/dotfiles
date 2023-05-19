@@ -5,6 +5,7 @@ tap "homebrew/cask-versions"
 # if these are on nix, move them.
 # todo - maybe replace these with nixpkgs if they work
 
+brew "antibody" # archived but still works for now
 brew "mas"
 brew "dog"
 brew "git-delta" # on nix but seems outdated
@@ -14,13 +15,20 @@ brew "datasette"
 brew "sqlite-utils"
 brew "rinchsan/tap/gosimports"
 brew "comby"
+brew "go"
 
 tap "noborus/tap"
 brew "noborus/tap/trdsql"
 
+# taps
+brew "cloudflare/cloudflare/cloudflared"
+
+cask "1password"
 cask "alfred"
 cask "amethyst"
+cask "arq"
 cask "caffeine"
+cask "cloudflare-warp"
 cask "dash"
 cask "db-browser-for-sqlite"
 cask "docker"
@@ -35,6 +43,7 @@ cask "iterm2"
 cask "jetbrains-toolbox"
 cask "karabiner-elements"
 cask "kitty"
+cask "logseq"
 cask "macdown"
 cask "macvim"
 cask "notion"
@@ -44,6 +53,7 @@ cask "phoenix"
 cask "postman"
 cask "raycast"
 cask "sequel-pro"
+cask "signal"
 cask "slack"
 cask "spotify"
 cask "sublime-text"

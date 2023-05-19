@@ -1,0 +1,45 @@
+"""IDEAVIMCOMMON
+nnoremap <Space>n :NERDTreeToggle<CR>
+" remove need to shift to enter command. TODO fix clash with repeat.vim.
+nnoremap ; :
+vnoremap ; :
+nnoremap <Space>x :x<cr>
+nnoremap <Space>u :up<cr>
+set hls incsearch " highlight search and incrementally while typing.
+nnoremap <Space><Space> <C-w>
+"""END IDEVIMCOMMON
+
+"""IDEAVIMLIKE Keybinds to IDEA functionality rather than VIM actions.
+nnoremap zr :up<cr>:action Run<cr>
+nnoremap zd :up<cr>:action Debug<cr>
+nnoremap <Space>f :action GotoFile<cr>
+nnoremap <Space>a :action GotoAction<cr>
+nnoremap <Space>s :action GotoSymbol<cr>
+nnoremap <Space>t :action GotoType<cr>
+nnoremap <Space>; :action FileStructurePopup<cr>
+" nnoremap <Space><Space> :action GotoAll<cr>
+nnoremap <Space>F :action FindInPath<cr>
+nnoremap <Space>b :action GotoDeclaration<cr>
+nnoremap <Space>e :action RecentFiles<cr>
+nnoremap <Space>] :action Back<cr>
+nnoremap <Space>[ :action Forward<cr>
+nnoremap <Space>l :action ReformatCode<cr>
+nnoremap <Space>r :action RenameElement<cr>
+nnoremap <Space>p :action ActivateProblemsViewToolWindow<cr>
+"""END IDEAVIMLIKE
+
+set sneak " must be set before set quickscope for ideavim.
+set quickscope " Plugin must be installed manually for IDEAvim.
+
+"""PLUGSHARED
+Plug 'preservim/nerdtree' " map to IDEA file tree bindings eg hjkl navigation etc.
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-surround' " TODO FIX clash with sneak.
+Plug 'tommcdo/vim-exchange'
+Plug 'chrisbra/matchit'
+Plug 'justinmk/vim-sneak' " Plugin must be installed manually for IDEAvim.
+let g:sneak#label = 1
+Plug 'unblevable/quick-scope' " Plugin must be installed manually for IDEAvim.
+Plug 'tpope/vim-repeat'
+"""ENDPLUGSHARED

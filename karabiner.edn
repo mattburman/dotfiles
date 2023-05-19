@@ -158,6 +158,7 @@
         [:s [:launch "Slack"]]
         [:k [:launch "kitty"]]
         [:j [:launch "GoLand"]]
+        [:c [:launch "CLion"]]
         [:n [:launch "Notes"]]
         [:v [:launch "Visual Studio Code"]]
         [:x [:launch "1Password"]]
@@ -195,9 +196,9 @@
                  [:o :!TOo]
                  [:p :!TOp]
                  [:q :!TOq]
-                 [:r :!Tr]; redo in vi
+                 [:r :!Tr]; redo in vi; fzf ctrl-r
                  [:s :!TOs]
-                 [:t :!TOt]
+                 [:t :!Tt]; fzf ctrl-t
                  [:u :!TOu]
                  [:v :!TOv]
                  [:w :!TOw]

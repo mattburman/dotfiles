@@ -5,13 +5,13 @@ function .f() {
   cd "$DOTFILES/$1"
 }
 
-if [[ ! ( $(darkMode) =~ 'Dark' ) ]]; then
-  kitty +kitten themes --reload-in=all "Tango Light"
-else
-  # TODO: fix dark theme
-  # kitty +kitten themes --reload-in=all "Tango Dark"
-  kitty +kitten themes --reload-in=all "Tango Light"
-fi
+# if [[ ! ( $(darkMode) =~ 'Dark' ) ]]; then
+#   kitty +kitten themes --reload-in=all "Tango Light"
+# else
+#   # TODO: fix dark theme
+#   # kitty +kitten themes --reload-in=all "Tango Dark"
+#   kitty +kitten themes --reload-in=all "Tango Light"
+# fi
 
 alias cd-="cd -"
 
@@ -171,7 +171,5 @@ export NVM_DIR="$HOME/.nvm"
 
 uname | grep -q "Darwin" && source ~/.zsh/darwin.zsh
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-source /opt/homebrew/share/antigen/antigen.zsh
-
-source /Users/matt/.gvm/scripts/gvm
+if test -e ~/.gvm/scripts/gvm; then . "$HOME"/.gvm/scripts/gvm; fi
+if test -e ~/.cargo/env; then . ~/.cargo/env; fi
