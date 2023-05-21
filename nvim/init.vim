@@ -66,19 +66,21 @@ nnoremap <Space><Space> <C-w>
 """IDEAVIMCOMMON
 
 """IDEAVIMLIKE
-nnoremap <Space>f :Files<CR>
+noremap <Space>f :Files<CR>
  " todo lang-specific
-nnoremap zr :update<cr>:!rr<Enter>
-nnoremap <Space>l :ALEFix<cr>
-nnoremap <Space>b :ALEGoToDefinition<cr>
+noremap zr :up<cr>:!rr<Enter>
+noremap <Space>l :ALEFix<cr>
+noremap <Space>b :ALEGoToDefinition<cr>
 
-nnoremap <Space>e :History<cr>
-nnoremap <Space>a :Commands<cr>
-nnoremap <Space>r :ALERename<cr>
-nnoremap <Space>p :ALEPopulateLocList<cr>
+noremap <Space>e :History<cr>
+noremap <Space>a :Commands<cr>
+noremap <Space>r :ALERename<cr>
+noremap <Space>p :ALEPopulateLocList<cr>
+noremap <Space>t :up<cr>:TestNearest<cr>
+noremap <Space>' :ALECodeAction<cr>
 " nnoremap ss :update<cr>
 """END IDEAVIMLIKE
-nnoremap <Space>; :History:<cr>
+noremap <Space>; :History:<cr>
 
 " Install plugins
 call plug#begin()
@@ -116,6 +118,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'dense-analysis/ale' " Async Lint Engine.
 
+Plug 'vim-test/vim-test' " Smart test runner
+let test#strategy = "basic" " TODO: look into floaterm strategy
 
 
 " coc
@@ -206,6 +210,8 @@ set title " terminal title
 set cmdheight=1
 set noshowmode " dont show INSERT / VISUAL LINE, etc
 set ignorecase " in search
+set mouse=a " click to move cursor
+set mousemodel=popup_setpos
 set smartcase " .. but not when search pattern contains upper case characters
 
 

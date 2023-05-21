@@ -10,22 +10,24 @@ nnoremap <Space><Space> <C-w>
 """END IDEVIMCOMMON
 
 """IDEAVIMLIKE Keybinds to IDEA functionality rather than VIM actions.
-nnoremap zr :up<cr>:action Run<cr>
-nnoremap zd :up<cr>:action Debug<cr>
-nnoremap <Space>f :action GotoFile<cr>
-nnoremap <Space>a :action GotoAction<cr>
-nnoremap <Space>s :action GotoSymbol<cr>
-nnoremap <Space>t :action GotoType<cr>
-nnoremap <Space>; :action FileStructurePopup<cr>
+noremap zr :up<cr>:action Run<cr>
+noremap zd :up<cr>:action Debug<cr>
+noremap <Space>f :action GotoFile<cr>
+noremap <Space>a :action GotoAction<cr>
+noremap <Space>s :action GotoSymbol<cr>
+noremap <Space>t :action GotoType<cr>
+noremap <Space>; :action FileStructurePopup<cr>
 " nnoremap <Space><Space> :action GotoAll<cr>
-nnoremap <Space>F :action FindInPath<cr>
-nnoremap <Space>b :action GotoDeclaration<cr>
-nnoremap <Space>e :action RecentFiles<cr>
-nnoremap <Space>] :action Back<cr>
-nnoremap <Space>[ :action Forward<cr>
-nnoremap <Space>l :action ReformatCode<cr>
-nnoremap <Space>r :action RenameElement<cr>
-nnoremap <Space>p :action ActivateProblemsViewToolWindow<cr>
+noremap <Space>F :action FindInPath<cr>
+noremap <Space>b :action GotoDeclaration<cr>
+noremap <Space>e :action RecentFiles<cr>
+noremap <Space>] :action Back<cr>
+noremap <Space>[ :action Forward<cr>
+noremap <Space>l :action ReformatCode<cr>
+noremap <Space>r :action RenameElement<cr>
+noremap <Space>p :action ActivateProblemsViewToolWindow<cr>
+noremap <Space>t :action RunClass<cr>
+noremap <Space>' :action ShowIntentionActions<cr>
 """END IDEAVIMLIKE
 
 set sneak " must be set before set quickscope for ideavim.
