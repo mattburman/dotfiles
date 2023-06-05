@@ -6,19 +6,26 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [
+      pkgs.amazon-ecr-credential-helper
+      pkgs.awscli2
+      pkgs.aws-iam-authenticator
       pkgs.bash_5
       pkgs.bat
+      pkgs.cmake
       pkgs.colordiff
       pkgs.coreutils-full
       pkgs.curl
+      pkgs.docker-credential-helpers
       pkgs.dive
       pkgs.envsubst
+      pkgs.exa
       pkgs.fd
       pkgs.findutils
       pkgs.fx
       pkgs.fzf
       pkgs.gawk
-      #pkgs.gcc
+      # pkgs.gcc
+      pkgs.git-lfs
       pkgs.gitAndTools.gitFull
       # pkgs.gitAndTools.hub
       pkgs.gnugrep
@@ -33,15 +40,21 @@
       pkgs.joker
       pkgs.jira-cli-go
       pkgs.jq
+      pkgs.k9s
       pkgs.kafkacat
+      pkgs.kubectl
+      pkgs.kubectx
+      pkgs.kubernetes-helm
       pkgs.less
       pkgs.m-cli
       # pkgs.mitmproxy
       pkgs.mosh
+      pkgs.moreutils
       pkgs.mtr
       pkgs.neovim
       pkgs.openssh
       pkgs.pandoc
+      pkgs.pass
       pkgs.proselint
       pkgs.python3
       pkgs.redis
@@ -55,15 +68,18 @@
       pkgs.socat
       pkgs.speedtest-cli
       pkgs.sqlite
-      pkgs.sqlite-replication
+      # pkgs.sqlite-replication
       pkgs.stern
+      pkgs.teleport
+      pkgs.telepresence2
       pkgs.terraform
+      pkgs.tilt
       pkgs.tldr
       pkgs.tree
       pkgs.unixtools.watch
       pkgs.vim
       pkgs.wget
-      # pkgs.yq
+      pkgs.yq
       pkgs.zsh
     ];
 

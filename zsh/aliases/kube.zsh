@@ -30,6 +30,13 @@ alias kgcm='kg configmap'
 alias kcrdry='kcr --dry-run=client -o yaml'
 alias krundry='krun --dry-run=client -o yaml' # for creating pods. bare in mind the label is run rather than app
 
+alias kns='kubens'
+alias kctx='kubectx'
+
+alias t='tilt'
+alias tu='t up'
+alias td='t down'
+
 export dry='--dry-run=client -o yaml'
 
 # edit current context to set the namespace e.g. kn kube-system

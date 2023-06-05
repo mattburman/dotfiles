@@ -51,6 +51,8 @@ let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 let g:ale_fix_on_save = 1 " fix on save
 let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 200
+autocmd BufEnter PKGBUILD,.env
+    \   let b:ale_sh_shellcheck_exclusions = 'SC2034,SC2154,SC2164'
 
 " call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
@@ -63,6 +65,7 @@ nnoremap <Space>x :x<cr>
 nnoremap <Space>u :up<cr>
 set hls incsearch " highlight search and incrementally while typing.
 nnoremap <Space><Space> <C-w>
+map tdmb A// TODO(mattb):<Space>
 """IDEAVIMCOMMON
 
 """IDEAVIMLIKE
@@ -77,7 +80,7 @@ noremap <Space>a :Commands<cr>
 noremap <Space>r :ALERename<cr>
 noremap <Space>p :ALEPopulateLocList<cr>
 noremap <Space>t :up<cr>:TestNearest<cr>
-noremap <Space>' :ALECodeAction<cr>
+noremap <Space>j :ALECodeAction<cr>
 " nnoremap ss :update<cr>
 """END IDEAVIMLIKE
 noremap <Space>; :History:<cr>
@@ -109,7 +112,11 @@ let g:vimade.fadelevel = 0.7
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " gopls, other stuff
 
 
+" general Languages
+Plug 'nickel-lang/vim-nickel'
+
 " Utils
+Plug 'tpope/vim-sensible'
 Plug 'preservim/nerdtree' " file browser. also in ideavim.
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
@@ -124,6 +131,9 @@ let test#strategy = "basic" " TODO: look into floaterm strategy
 
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+\  'coc-snippets',
+\]
 
 
 function! CheckBackspace() abort

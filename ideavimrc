@@ -7,6 +7,7 @@ nnoremap <Space>x :x<cr>
 nnoremap <Space>u :up<cr>
 set hls incsearch " highlight search and incrementally while typing.
 nnoremap <Space><Space> <C-w>
+map tdmb A// TODO(mattb):<Space>
 """END IDEVIMCOMMON
 
 """IDEAVIMLIKE Keybinds to IDEA functionality rather than VIM actions.
@@ -27,8 +28,11 @@ noremap <Space>l :action ReformatCode<cr>
 noremap <Space>r :action RenameElement<cr>
 noremap <Space>p :action ActivateProblemsViewToolWindow<cr>
 noremap <Space>t :action RunClass<cr>
-noremap <Space>' :action ShowIntentionActions<cr>
+noremap <Space>j :action ShowIntentionActions<cr>
 """END IDEAVIMLIKE
+
+""" everything after is :
+noremap <Space>h :action ShowErrorDescription<cr>
 
 set sneak " must be set before set quickscope for ideavim.
 set quickscope " Plugin must be installed manually for IDEAvim.

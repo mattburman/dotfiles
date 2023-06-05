@@ -2,8 +2,11 @@
 # generates single fast script to source in zshrc
 akarzim/zsh-docker-aliases
 lukechilds/zsh-nvm
+ahmetb/kubectx path:completion kind:fpath
 olets/zsh-abbr
 tarrasch/zsh-bd
+Aloxaf/fzf-tab
+joel-porquet/zsh-dircolors-solarized
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search

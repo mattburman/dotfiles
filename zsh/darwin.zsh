@@ -9,4 +9,5 @@ export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 # source /opt/homebrew/share/antigen/antigen.zsh
