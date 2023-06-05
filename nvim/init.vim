@@ -111,6 +111,13 @@ let g:vimade.fadelevel = 0.7
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " gopls, other stuff
 
+ " Markdown
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
+Plug 'evansalter/vim-checklist'
+nnoremap <Space>c :ChecklistToggleCheckbox<cr>
+vnoremap <Space>c :ChecklistToggleCheckbox<cr>
 
 " general Languages
 Plug 'nickel-lang/vim-nickel'

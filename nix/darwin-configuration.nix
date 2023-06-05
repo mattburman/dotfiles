@@ -68,7 +68,6 @@
       pkgs.socat
       pkgs.speedtest-cli
       pkgs.sqlite
-      # pkgs.sqlite-replication
       pkgs.stern
       pkgs.teleport
       pkgs.telepresence2
