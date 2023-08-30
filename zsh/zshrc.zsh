@@ -1,9 +1,9 @@
-export NVM_LAZY_LOAD=true # for lukechilds/zsh-nvm plugin
-DOTFILES="$HOME/dotfiles"
-alias .z=". ~/.zshrc"
+export DOTFILES=~/dotfiles
 function .f() {
   cd "$DOTFILES/$1"
 }
+alias .z="source $DOTFILES/zsh/zshrc.zsh"
+
 
 # if [[ ! ( $(darkMode) =~ 'Dark' ) ]]; then
 #   kitty +kitten themes --reload-in=all "Tango Light"
@@ -32,6 +32,7 @@ source ~/.zsh/submodules/kubectl-aliases/.kubectl_aliases
 
 source <(kubectl completion zsh)
 
+if test -e /etc/static/bashrc; then . /etc/static/bashrc; fi 2> /dev/null # import nix bashrc but ignore errors
 
 export PATH=$PATH:.
 export PATH=$PATH:$DOTFILES/zsh/path
@@ -39,8 +40,7 @@ export PATH=$PATH:/opt/homebrew/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/opt/libpq/bin:$PATH"
-
-if test -e /etc/static/bashrc; then . /etc/static/bashrc; fi 2> /dev/null # import nix bashrc but ignore errors
+export PATH=$PATH:$DOTFILES/zsh/path
 
 ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
 ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is clean
@@ -50,6 +50,12 @@ alias v="nvim"
 function .v() {
   v "$DOTFILES/$1"
 }
+function _DF {
+  ((CURRENT == 2)) &&
+  _files -/ -W $DOTFILES
+}
+compdef _DF .v
+
 export EDITOR=vim
 export VISUAL=vim
 export SHELL=$(which zsh)

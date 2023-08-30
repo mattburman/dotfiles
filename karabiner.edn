@@ -18,19 +18,43 @@
 ;; R  | right_shift
 ;; !! | mandatory command + control + optional + shift (hyper)
 ;; ## | optional any
+;;
+;; keycodes: https://github.com/pqrs-org/Karabiner-Elements/blob/main/src/apps/SettingsWindow/Resources/simple_modifications.json
 {
+ :profiles {:Default {:default true
+         :alone   80 ; hold for .. ms to register single tap
+         :held    50 ; TODO: not sure what it's for
+         :delay   0 ; time after which the key press is delayed
+         :sim     10}} ; keys need to be pressed within this threshold to be considered simultaneous
+ :applications { ;; osascript -e 'id of app "Google Chrome"'
+    :Intellij [
+      "^com\\.jetbrains\\.CLion$"
+      "^com\\.jetbrains\\.Goland$"
+   ]
+ }
 :templates {
     :launch "open -a '%s.app'"
+    :open "open '%s'"
     :alfred "osascript -e 'tell app \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
-    ;; :raycast "osascript -e 'tell app \"System Events\" to keystroke \" \" using {option down}' -e 'tell app \"System Events\" to keystroke \"%s\" & return'"
+
+    ;; https://developers.raycast.com/information/lifecycle/deeplinks
+    ;; raycast://extensions/<author-or-owner>/<extension-name>/<command-name>
+    :raycast "open 'raycast://extensions/%s'"
 }
 :simlayers {
     :vi-mode {:key :d}
+    ; :vi-mode {:key :d :condi :!Intellij} ; <-- example how to turn off mode
+    :s-mode-intellij {:key :s :condi :Intellij}
+    :quote-mode {:key :quote}
+    :e-mode {:key :e} ; cmd
     :window-mode {:key :a}
-    :search-mode {:key :e}
+    :search-mode {:key :o}
     :caps_lock-mode {:key :caps_lock}
     :amethyst-mod1-mode {:key :q}
-    :amethyst-mod2-mode {:key :s}
+    :semicolon-mode {:key :semicolon}
+    ; :amethyst-mod2-mode {:key :s}
+    :m-mode {:key :m} ; cmd+shift
+    :c-mode {:key :c} ; cmd+shift alternative for weird keys like []
 }
 :main [
     ;; amethyst modes should be generated using amethyst-to-goku.js
@@ -101,29 +125,36 @@
 
     {:des "search mode"
       :rules [:search-mode
+        [:a :!CSspacebar] ; 1Password search
         [:f [:!CTOf]] ;; File Search
         [:m [:!CTOm]] ;; Search Menu Items
-        [:b [:!CTOb]] ;; Search Browser Bookmarks
+        [:b [:raycast "Codely/google-chrome/search-bookmarks"]]
         [:n [:!CTOn]] ;; Search Snippets
         ;; [:j [:!CTOj]] ;; Search Issues (Jira)
         [:i [:!CTOi]] ;; Search Issues (Github)
         [:r [:!CTOr]] ;; Search Repositories (Github)
         [:g [:!CTOg]] ;; Search Google (via Script)
+        [:w [:raycast "raycast/navigation/switch-windows"]]
+        [:t [:raycast "Codely/google-chrome/search-tab"]]
+        [:h [:raycast "Codely/google-chrome/search-history"]]
         ;; [:c [:!CTOc]] ;; Search Contacts
         ;; [:b [:raycast "S B B"]]
         ;; [:f [:raycast "F S"]]
         ;; [:m [:alfred "search menu bar" "com.folded-paper.menu-bar-search"]]
         ;; [:m [:raycast "S M I"]]
         ;; [:i [:alfred "search iterm sessions" "com.madvas.iterm-sessions"]]
-        [:9 [:alfred "kill process" "com.ngreenstein.alfred-process-killer"]]
-        [:q [:alfred "search quiver" "com.cook.quiver"]]
-        [:p [:alfred "activate spot_mini" "com.vdesabou.spotify.mini.player"]]
-        [:l [:!CSl]] ;; activate lastpass by keystroke
+        ;; [:9 [:alfred "kill process" "com.ngreenstein.alfred-process-killer"]]
+        ;; [:q [:alfred "search quiver" "com.cook.quiver"]]
+        ;; [:p [:alfred "activate spot_mini" "com.vdesabou.spotify.mini.player"]]
      ]
     }
 
     {:des "Vi Mode [D as Trigger Key]"
       :rules [:vi-mode
+        [:w [:!Oleft_arrow :!OSright_arrow]]
+        [:r :!Stab]
+        [:t :tab]
+        [:g :!Ctab]
         [:##j :down_arrow]
         [:##k :up_arrow]
         [:##h :left_arrow]
@@ -133,6 +164,20 @@
         [:##a :!Ca]; highlight all
         [:##e :!Te]; go to end of line via ctrl-e
         [:##f :return_or_enter]
+        [:v :left_shift]
+      ]
+    }
+
+    {:des "Vi-like Debugger Mode intellij [S as Trigger Key]"
+      :rules [
+        :s-mode-intellij
+        [:##j :f8] ;; step over
+        ;; [:##k :up_arrow]
+        [:##r :!CSOTr] ;; re-run current test (non-defualt custom intellij bind)
+        [:##f :!COr] ;; resume program / debug configuration menu
+        [:##h :!Sf8] ;; step out
+        [:##l :f7] ;; step into
+        [:##v [:left_option :f9]] ; run to cursor / debug configuration menu
       ]
     }
 
@@ -156,16 +201,21 @@
         ;; windows
         [:g [:launch "Google Chrome"]]
         [:s [:launch "Slack"]]
-        [:k [:launch "kitty"]]
-        [:j [:launch "GoLand"]]
+        [:i [:launch "kitty"]]
+        [:j [:!CSopen_bracket ]] ; switch tabs left
+        [:k [:!CSclose_bracket ]] ; switch tabs right
         [:c [:launch "CLion"]]
         [:n [:launch "Notes"]]
-        [:v [:launch "Visual Studio Code"]]
         [:x [:launch "1Password"]]
         [:d [:launch "Cryptowatch Desktop"]]
-        [:f [:launch "Finder"]]
         [:o [:launch "2Do"]]
-        [:b {:key :tab :modi :command}]
+        [:b {:key :tab :modi :command}] ; window switcher
+        [:r {:key :non_us_backslash :modi :command}] ; switch same app
+        [:w :!Cw] ; close tab
+        [:e [:raycast "raycast/navigation/switch-windows"]]
+        [:f :!Creturn_or_enter] ; opens new split in kitty
+        [:v :!Ct] ; new tab
+        [:p :!CSa] ; chrome tab switcher + intellij action search
       ]
     }
 
@@ -215,5 +265,242 @@
                  [:8 :!TO8]
                  [:9 :!TO9]
                  [:0 :!TO0]]}
+
+    ; https://github.com/nikitavoloboev/config/blob/c2f060e9c67f037b879715fe862e8effa2a8b955/karabiner/karabiner.edn#LL235C1-L279C66
+    {:des "ekey (cmd)"
+         :rules [:e-mode
+                 [:q :!Cq]
+                 [:w :!Cw]
+                 [:r :!Cr]
+                 [:t :!Ct]
+                 [:u :!Cu]
+                 [:i :!Ci]
+                 [:p :!Cp]
+                 [:open_bracket :!Copen_bracket]
+                 [:close_bracket :!Cclose_bracket]
+                 [:semicolon :!Csemicolon]
+                 [:quote :!Cquote]
+                 [:comma :!Ccomma]
+                 [:period :!Cperiod]
+                 [:slash :!Cslash]
+                 [:a :!Ca]
+                 [:b :!Cb]
+                 [:c :!Cc]
+                 [:d :!Cd]
+                 [:f :!Cf]
+                 [:g :!Cg]
+                 [:h :!Ch]
+                 [:j :!Cj]
+                 [:k :!Ck]
+                 [:l :!Cl]
+                 [:m :!Cm]
+                 [:n :!Cn]
+                 [:o :!Co]
+                 [:s :!Cs]
+                 [:v :!Cv]
+                 [:x :!Cx]
+                 [:y :!Cy]
+                 [:z :!Cz]
+                 [:1 :!C1]
+                 [:2 :!C2]
+                 [:3 :!C3]
+                 [:4 :!C4]
+                 [:5 :!C5]
+                 [:6 :!C6]
+                 [:7 :!C7]
+                 [:8 :!C8]
+                 [:9 :!C9]
+                 [:0 :!C0]
+                 [:hyphen :!Chyphen]
+                 [:equal_sign :!Cequal_sign]
+                 [:spacebar :!Cspacebar]
+                 [:tab :!Ctab]
+                 [:non_us_backslash :!Cnon_us_backslash]
+                 ]}
+
+      {:des "quote (cmd + shift)"
+         :rules [:quote-mode
+                 [:1 :!CS1]
+                 [:2 :!CS2]
+                 [:3 :!CS3]
+                 [:4 :!CS4]
+                 [:5 :!CS5]
+                 [:6 :!CS6]
+                 [:7 :!CS7]
+                 [:8 :!CS8]
+                 [:9 :!CS9]
+                 [:0 :!CS0]
+                 [:w :!CSw]
+                 [:e :!CSe]
+                 [:r :!CSr]
+                 [:t :!CSt]
+                 [:y :!CSy]
+                 [:u :!CSu]
+                 [:i :!CSi]
+                 [:o :!CSo]
+                 [:p :!CSp]
+                 [:open_bracket :!CSopen_bracket]
+                 [:close_bracket :!CSclose_bracket]
+                 [:a :!CSa]
+                 [:s :!CSs]
+                 [:d :!CSd]
+                 [:f :!CSf]
+                 [:g :!CSg]
+                 [:h :!CSh]
+                 [:j :!CSj]
+                 [:k :!CSk]
+                 [:l :!CSl]
+                 [:semicolon :!CSsemicolon]
+                 ; [:quote :!CSquote]
+                 [:z :!CSz]
+                 [:x :!CSx]
+                 [:c :!CSc]
+                 [:v :!CSv]
+                 [:b :!CSb]
+                 [:n :!CSn]
+                 [:m :!CSm]
+                 [:comma :!CScomma]
+                 [:period :!CSperiod]
+                 [:slash :!CSslash]
+                 [:spacebar :!CSOe]
+       ]} ; Selection -> YouTube
+
+    ;{:des "okey (alfred)"
+    ;     :rules [:o-mode
+    ;             [:w :!CSspacebar] ; 1Password search
+    ;             ;[:e [:km "Make 2Do task"]]
+    ;             [:e :!CTOS9]
+    ;             [:e [:km "Make 2Do task"]]
+    ;             [:r [:km "Make 2Do task with note as current URL"]]
+    ;             [:t [:km "Make 2Do task with Safari title as name + note as current URL"]]
+    ;             [:i [:alfred "search alfred" "nikivi.utilities" "?"]]
+    ;             [:caps_lock [:alfred "search desktop" "com.vitorgalvao.alfred.directories"]]
+    ;             [:a [:alfred "search files" "nikivi.manage.notes"]] ; TODO: add blog, drafts
+    ;             [:s [:open "raycast://extensions/mattisssa/spotify-beta/search"]] ; Raycast Spotify Search
+    ;             ;[:s [:alfred "search code" "nikivi.manage.notes"]]
+    ;             [:d [:alfred "search repos" "net.deanishe.alfred-git-repos"]]
+    ;             [:f [:alfred "search folders" "nikivi.search.folders"]]
+    ;             [:g :!COS9] ; Raycast
+    ;             ;[:g [:km "2Do with current url as note (github)"]]
+    ;             ;[:j [:alfred "run" "iansinnott.keyboardmaestro"]] ; TODO: move to nice key
+    ;             [:j [:alfred "search dash" "com.kapeli.dash.workflow"]]
+    ;             [:k [:alfred "search menu bar" "com.tedwise.menubarsearch"]]
+    ;             [:grave_accent_and_tilde [:alfred "search processes" "com.vitorgalvao.alfred.processcontrol"]]
+    ;             [:x [:alfred "search workflows" "org.jeef.workflowdirectory"]]
+    ;             [:c [:alfred "search emoji" "com.github.jsumners.alfred-emoji"]]
+    ;             [:v [:alfred "search clones" "com.vitorgalvao.alfred.directories"]]
+    ;             [:b [:km "Add 2Do with current url as note (github)"]]
+    ;             ]}
+
+  {:des "colonkey (shift)"
+         :rules [:semicolon-mode
+                 [:1 :!S1]
+                 [:2 :!S2]
+                 [:3 :!S3]
+                 [:4 :!S4]
+                 [:5 :!S5]
+                 [:q :!Sq]
+                 [:w :!Sw]
+                 [:e :!Se]
+                 [:r :!Sr]
+                 [:t :!St]
+                 [:y :!Sy]
+                 [:u :!Su]
+                 [:i :!Si]
+                 [:o :!So]
+                 [:p :!Sp]
+                 [:a :!Sa]
+                 [:s :!Ss]
+                 [:d :!Sd]
+                 [:f :!Sf]
+                 [:g :!Sg]
+                 [:h :!Sh]
+                 [:j :!Sj]
+                 [:k :!Sk]
+                 [:l :!Sl]
+                 [:grave_accent_and_tilde [:!Sgrave_accent_and_tilde]] ; -> ~
+                 [:z :!Sz]
+                 [:x :!Sx]
+                 [:c :!Sc]
+                 [:v :!Sv]
+                 [:b :!Sb]
+                 [:n :!Sn]
+                 [:m :!Sm]]}
+
+  {:des "cmd+shift"
+         :rules [:m-mode
+                 [:1 :!CS1]
+                 [:2 :!CS2]
+                 [:3 :!CS3]
+                 [:4 :!CS4]
+                 [:5 :!CS5]
+                 [:q :!CSq]
+                 [:w :!CSw]
+                 [:e :!CSe]
+                 [:r :!CSr]
+                 [:t :!CSt]
+                 [:y :!CSy]
+                 [:u :!CSu]
+                 [:i :!CSi]
+                 [:o :!CSo]
+                 [:p :!CSp]
+                 [:a :!CSa]
+                 [:s :!CSs]
+                 [:d :!CSd]
+                 [:f :!CSf]
+                 [:g :!CSg]
+                 [:h :!CSh]
+                 [:j :!CSj]
+                 [:k :!CSk]
+                 [:l :!CSl]
+                 [:z :!CSz]
+                 [:x :!CSx]
+                 [:c :!CSc]
+                 [:v :!CSv]
+                 [:b :!CSb]
+                 [:n :!CSn]
+                 [:open_bracket :!CSopen_bracket]
+                 [:close_bracket :!CSclose_bracket]
+                 [:return_or_enter :!CSreturn_or_enter]
+                 ; [:m :!CSm]
+                 ]}
+
+  {:des "cmd+shift alternative"
+         :rules [:c-mode
+                 [:1 :!CS1]
+                 [:2 :!CS2]
+                 [:3 :!CS3]
+                 [:4 :!CS4]
+                 [:5 :!CS5]
+                 [:q :!CSq]
+                 [:w :!CSw]
+                 [:e :!CSe]
+                 [:r :!CSr]
+                 [:t :!CSt]
+                 [:y :!CSy]
+                 [:u :!CSu]
+                 [:i :!CSi]
+                 [:o :!CSo]
+                 [:p :!CSp]
+                 [:a :!CSa]
+                 [:s :!CSs]
+                 [:d :!CSd]
+                 [:f :!CSf]
+                 [:g :!CSg]
+                 [:h :!CSh]
+                 [:j :!CSopen_bracket] ; different
+                 [:k :!CSclose_bracket] ; different
+                 [:l :!CSl]
+                 [:z :!CSz]
+                 [:x :!CSx]
+                 ; [:c :!CSc]
+                 [:v :!CSv]
+                 [:b :!CSb]
+                 [:n :!CSn]
+                 [:open_bracket :!CSopen_bracket]
+                 [:close_bracket :!CSclose_bracket]
+                 [:return_or_enter :!CSreturn_or_enter]
+                 [:m :!CSm]
+                 ]}
 ]
 }

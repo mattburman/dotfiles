@@ -53,6 +53,7 @@ let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 200
 autocmd BufEnter PKGBUILD,.env
     \   let b:ale_sh_shellcheck_exclusions = 'SC2034,SC2154,SC2164'
+autocmd BufWritePost karabiner.edn !goku
 
 " call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
@@ -66,6 +67,8 @@ nnoremap <Space>u :up<cr>
 set hls incsearch " highlight search and incrementally while typing.
 nnoremap <Space><Space> <C-w>
 map tdmb A// TODO(mattb):<Space>
+nnoremap <Space>i <C-i>
+nnoremap <Space>o <C-o>
 """IDEAVIMCOMMON
 
 """IDEAVIMLIKE
@@ -121,6 +124,7 @@ vnoremap <Space>c :ChecklistToggleCheckbox<cr>
 
 " general Languages
 Plug 'nickel-lang/vim-nickel'
+Plug 'NoahTheDuke/vim-just'
 
 " Utils
 Plug 'tpope/vim-sensible'

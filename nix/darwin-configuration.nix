@@ -36,22 +36,28 @@
       pkgs.graphviz
       pkgs.gron
       pkgs.htop
+      pkgs.hurl
       pkgs.iperf
-      pkgs.joker
       pkgs.jira-cli-go
+      pkgs.joker
       pkgs.jq
+      pkgs.just
       pkgs.k9s
       pkgs.kafkacat
       pkgs.kubectl
       pkgs.kubectx
       pkgs.kubernetes-helm
+      pkgs.kubeseal
       pkgs.less
       pkgs.m-cli
+      pkgs.mdbook
       # pkgs.mitmproxy
       pkgs.mosh
       pkgs.moreutils
       pkgs.mtr
       pkgs.neovim
+      pkgs.nickel
+      pkgs.nodePackages.prettier
       pkgs.openssh
       pkgs.pandoc
       pkgs.pass
@@ -69,11 +75,13 @@
       pkgs.speedtest-cli
       pkgs.sqlite
       pkgs.stern
+      pkgs.taplo
       pkgs.teleport
       pkgs.telepresence2
       pkgs.terraform
       pkgs.tilt
       pkgs.tldr
+      pkgs.topiary
       pkgs.tree
       pkgs.unixtools.watch
       pkgs.vim

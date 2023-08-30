@@ -8,6 +8,8 @@ nnoremap <Space>u :up<cr>
 set hls incsearch " highlight search and incrementally while typing.
 nnoremap <Space><Space> <C-w>
 map tdmb A// TODO(mattb):<Space>
+nnoremap <Space>i <C-i>
+nnoremap <Space>o <C-o>
 """END IDEVIMCOMMON
 
 """IDEAVIMLIKE Keybinds to IDEA functionality rather than VIM actions.
@@ -34,17 +36,17 @@ noremap <Space>j :action ShowIntentionActions<cr>
 """ everything after is :
 noremap <Space>h :action ShowErrorDescription<cr>
 
-set sneak " must be set before set quickscope for ideavim.
+# set sneak " must be set before set quickscope for ideavim.
 set quickscope " Plugin must be installed manually for IDEAvim.
 
 """PLUGSHARED
 Plug 'preservim/nerdtree' " map to IDEA file tree bindings eg hjkl navigation etc.
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-surround' " TODO FIX clash with sneak.
+Plug 'tpope/vim-surround' " Clashes with sneak.
 Plug 'tommcdo/vim-exchange'
 Plug 'chrisbra/matchit'
-Plug 'justinmk/vim-sneak' " Plugin must be installed manually for IDEAvim.
+" Plug 'justinmk/vim-sneak' " Plugin must be installed manually for IDEAvim. Conflicts with surround which imo is more useful than sneak given f,t,/ or  exists for navigation
 let g:sneak#label = 1
 Plug 'unblevable/quick-scope' " Plugin must be installed manually for IDEAvim.
 Plug 'tpope/vim-repeat'
