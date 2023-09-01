@@ -126,25 +126,25 @@
     {:des "search mode"
       :rules [:search-mode
         [:a :!CSspacebar] ; 1Password search
-        [:f [:!CTOf]] ;; File Search
-        [:m [:!CTOm]] ;; Search Menu Items
+        [:f [:raycast "raycast/file-search/search-files"]]
+        [:v [:raycast "GastroGeek/folder-search/search"]]
+        [:m [:raycast "raycast/navigation/search-menu-items"]]
         [:b [:raycast "Codely/google-chrome/search-bookmarks"]]
         [:n [:!CTOn]] ;; Search Snippets
         ;; [:j [:!CTOj]] ;; Search Issues (Jira)
         [:i [:!CTOi]] ;; Search Issues (Github)
+        [:e [:raycast "raycast/emoji-symbols/search-emoji-symbols"]]
         [:r [:!CTOr]] ;; Search Repositories (Github)
         [:g [:!CTOg]] ;; Search Google (via Script)
         [:w [:raycast "raycast/navigation/switch-windows"]]
         [:t [:raycast "Codely/google-chrome/search-tab"]]
         [:h [:raycast "Codely/google-chrome/search-history"]]
+        [:c [:raycast "raycast/clipboard-history/clipboard-history"]]
+        [:p [:raycast "rolandleth/kill-process/index"]]
+        [:x [:raycast "raycast/contacts/search-contacts"]]
+        [:s [:raycast "mattisssa/spotify-player/search"]]
+
         ;; [:c [:!CTOc]] ;; Search Contacts
-        ;; [:b [:raycast "S B B"]]
-        ;; [:f [:raycast "F S"]]
-        ;; [:m [:alfred "search menu bar" "com.folded-paper.menu-bar-search"]]
-        ;; [:m [:raycast "S M I"]]
-        ;; [:i [:alfred "search iterm sessions" "com.madvas.iterm-sessions"]]
-        ;; [:9 [:alfred "kill process" "com.ngreenstein.alfred-process-killer"]]
-        ;; [:q [:alfred "search quiver" "com.cook.quiver"]]
         ;; [:p [:alfred "activate spot_mini" "com.vdesabou.spotify.mini.player"]]
      ]
     }
