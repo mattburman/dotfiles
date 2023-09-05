@@ -133,25 +133,24 @@
         [:h :return_or_enter]
 
         ; search
+        ;; [:n [:raycast "ChrisKohler/kubens/kubens"]] ; cant set kubens path
         [:a :!CSspacebar] ; 1Password search
-        [:f [:raycast "raycast/file-search/search-files"]]
-        [:v [:raycast "GastroGeek/folder-search/search"]]
-        [:m [:raycast "raycast/navigation/search-menu-items"]]
         [:b [:raycast "Codely/google-chrome/search-bookmarks"]]
-        [:i [:!CTOi]] ;; Search Issues (Github)
+        [:c [:raycast "raycast/clipboard-history/clipboard-history"]]
         [:e [:raycast "raycast/emoji-symbols/search-emoji-symbols"]]
-        [:r [:!CTOr]] ;; Search Repositories (Github)
-        [:g [:!CTOg]] ;; Search Google (via Script)
-        [:w [:raycast "raycast/navigation/switch-windows"]]
+        [:f [:raycast "raycast/file-search/search-files"]]
+        [:g [:raycast "priithaamer/docker/container_list"]]
+        [:m [:raycast "raycast/navigation/search-menu-items"]]
+        [:n [:raycast "oktay/kubectx/context"]]
+        [:p [:raycast "rolandleth/kill-process/index"]]
+        [:r [:raycast "mrmartineau/search-github-stars/index"]] ;; Search Repositories (Github)
+        [:s [:raycast "mattisssa/spotify-player/search"]]
         [:t [:raycast "Codely/google-chrome/search-tab"]]
         [:u [:raycast "Codely/google-chrome/search-history"]]
-        [:c [:raycast "raycast/clipboard-history/clipboard-history"]]
-        [:p [:raycast "rolandleth/kill-process/index"]]
+        [:v [:raycast "GastroGeek/folder-search/search"]]
+        [:w [:raycast "raycast/navigation/switch-windows"]]
         [:x [:raycast "raycast/contacts/search-contacts"]]
-        [:s [:raycast "mattisssa/spotify-player/search"]]
-
-        ;; [:c [:!CTOc]] ;; Search Contacts
-        ;; [:p [:alfred "activate spot_mini" "com.vdesabou.spotify.mini.player"]]
+        [:y [:raycast "priithaamer/docker/image_list"]]
      ]
     }
 
@@ -205,23 +204,23 @@
         [:semicolon [:!OSreturn_or_enter]] ;; swap-main
 
         ;; windows
+        [:b {:key :tab :modi :command}] ; window switcher
+        [:c [:launch "CLion"]]
+        [:d [:launch "kitty"]]
+        [:e [:raycast "raycast/navigation/switch-windows"]]
+        [:f :!Creturn_or_enter] ; opens new split in kitty
         [:g [:launch "Google Chrome"]]
-        [:s [:launch "Slack"]]
         [:i [:launch "kitty"]]
         [:j [:!CSopen_bracket ]] ; switch tabs left
         [:k [:!CSclose_bracket ]] ; switch tabs right
-        [:c [:launch "CLion"]]
         [:n [:launch "Notes"]]
-        [:x [:launch "1Password"]]
-        [:d [:launch "Cryptowatch Desktop"]]
         [:o [:launch "2Do"]]
-        [:b {:key :tab :modi :command}] ; window switcher
-        [:r {:key :non_us_backslash :modi :command}] ; switch same app
-        [:w :!Cw] ; close tab
-        [:e [:raycast "raycast/navigation/switch-windows"]]
-        [:f :!Creturn_or_enter] ; opens new split in kitty
-        [:v :!Ct] ; new tab
         [:p :!CSa] ; chrome tab switcher + intellij action search
+        [:r {:key :non_us_backslash :modi :command}] ; switch same app
+        [:s [:launch "Slack"]]
+        [:v [:launch "CLion"]]
+        [:w :!Cw] ; close tab
+        [:x [:launch "1Password"]]
       ]
     }
 
