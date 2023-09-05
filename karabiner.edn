@@ -48,7 +48,8 @@
     :quote-mode {:key :quote}
     :e-mode {:key :e} ; cmd
     :window-mode {:key :a}
-    :search-mode {:key :o}
+    :o-mode {:key :o}
+    :p-mode {:key :p}
     :caps_lock-mode {:key :caps_lock}
     :amethyst-mod1-mode {:key :q}
     :semicolon-mode {:key :semicolon}
@@ -123,22 +124,27 @@
 
     ;; end amethyst section
 
-    {:des "search mode"
-      :rules [:search-mode
+    {:des "o-mode - search-mode"
+      :rules [:o-mode
+        ; navigation of things in a vertical list with one hand
+        [:j :down_arrow]
+        [:k :up_arrow]
+        [:i :!CSa] ; chrome switch. todo slack CK; intellij CE
+        [:h :return_or_enter]
+
+        ; search
         [:a :!CSspacebar] ; 1Password search
         [:f [:raycast "raycast/file-search/search-files"]]
         [:v [:raycast "GastroGeek/folder-search/search"]]
         [:m [:raycast "raycast/navigation/search-menu-items"]]
         [:b [:raycast "Codely/google-chrome/search-bookmarks"]]
-        [:n [:!CTOn]] ;; Search Snippets
-        ;; [:j [:!CTOj]] ;; Search Issues (Jira)
         [:i [:!CTOi]] ;; Search Issues (Github)
         [:e [:raycast "raycast/emoji-symbols/search-emoji-symbols"]]
         [:r [:!CTOr]] ;; Search Repositories (Github)
         [:g [:!CTOg]] ;; Search Google (via Script)
         [:w [:raycast "raycast/navigation/switch-windows"]]
         [:t [:raycast "Codely/google-chrome/search-tab"]]
-        [:h [:raycast "Codely/google-chrome/search-history"]]
+        [:u [:raycast "Codely/google-chrome/search-history"]]
         [:c [:raycast "raycast/clipboard-history/clipboard-history"]]
         [:p [:raycast "rolandleth/kill-process/index"]]
         [:x [:raycast "raycast/contacts/search-contacts"]]
@@ -347,9 +353,9 @@
                  [:f :!CSf]
                  [:g :!CSg]
                  [:h :!CSh]
-                 [:j :!CSj]
-                 [:k :!CSk]
-                 [:l :!CSl]
+                 ; [:j :!CSj]
+                 ; [:k :!CSk]
+                 ; [:l :!CSl]
                  [:semicolon :!CSsemicolon]
                  ; [:quote :!CSquote]
                  [:z :!CSz]
@@ -365,35 +371,23 @@
                  [:spacebar :!CSOe]
        ]} ; Selection -> YouTube
 
-    ;{:des "okey (alfred)"
-    ;     :rules [:o-mode
-    ;             [:w :!CSspacebar] ; 1Password search
-    ;             ;[:e [:km "Make 2Do task"]]
-    ;             [:e :!CTOS9]
-    ;             [:e [:km "Make 2Do task"]]
-    ;             [:r [:km "Make 2Do task with note as current URL"]]
-    ;             [:t [:km "Make 2Do task with Safari title as name + note as current URL"]]
-    ;             [:i [:alfred "search alfred" "nikivi.utilities" "?"]]
-    ;             [:caps_lock [:alfred "search desktop" "com.vitorgalvao.alfred.directories"]]
-    ;             [:a [:alfred "search files" "nikivi.manage.notes"]] ; TODO: add blog, drafts
-    ;             [:s [:open "raycast://extensions/mattisssa/spotify-beta/search"]] ; Raycast Spotify Search
-    ;             ;[:s [:alfred "search code" "nikivi.manage.notes"]]
-    ;             [:d [:alfred "search repos" "net.deanishe.alfred-git-repos"]]
-    ;             [:f [:alfred "search folders" "nikivi.search.folders"]]
-    ;             [:g :!COS9] ; Raycast
-    ;             ;[:g [:km "2Do with current url as note (github)"]]
-    ;             ;[:j [:alfred "run" "iansinnott.keyboardmaestro"]] ; TODO: move to nice key
-    ;             [:j [:alfred "search dash" "com.kapeli.dash.workflow"]]
-    ;             [:k [:alfred "search menu bar" "com.tedwise.menubarsearch"]]
-    ;             [:grave_accent_and_tilde [:alfred "search processes" "com.vitorgalvao.alfred.processcontrol"]]
-    ;             [:x [:alfred "search workflows" "org.jeef.workflowdirectory"]]
-    ;             [:c [:alfred "search emoji" "com.github.jsumners.alfred-emoji"]]
-    ;             [:v [:alfred "search clones" "com.vitorgalvao.alfred.directories"]]
-    ;             [:b [:km "Add 2Do with current url as note (github)"]]
-    ;             ]}
+  {:des "p-mode"
+   :rules [:p-mode
+                 ; navigating tabs
+                 [:j :!CSopen_bracket] ; switch left
+                 [:k :!CSclose_bracket] ; switch right
+                 [:n :!Ct] ; new tab
+                 [:m :!Cw] ; close tab
+                 [:h :return_or_enter]
+   ]}
 
   {:des "colonkey (shift)"
          :rules [:semicolon-mode
+                 ; navigation in history
+                 [:j :!Cleft_arrow] ; back
+                 [:k :!Cright_arrow] ; forward
+
+                 ; shift
                  [:1 :!S1]
                  [:2 :!S2]
                  [:3 :!S3]
@@ -415,8 +409,8 @@
                  [:f :!Sf]
                  [:g :!Sg]
                  [:h :!Sh]
-                 [:j :!Sj]
-                 [:k :!Sk]
+                 ; [:j :!Sj]
+                 ; [:k :!Sk]
                  [:l :!Sl]
                  [:grave_accent_and_tilde [:!Sgrave_accent_and_tilde]] ; -> ~
                  [:z :!Sz]
@@ -425,7 +419,8 @@
                  [:v :!Sv]
                  [:b :!Sb]
                  [:n :!Sn]
-                 [:m :!Sm]]}
+                 [:m :!Sm]
+                 ]}
 
   {:des "cmd+shift"
          :rules [:m-mode
