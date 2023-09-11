@@ -61,6 +61,7 @@
       pkgs.openssh
       pkgs.pandoc
       pkgs.pass
+      pkgs.procps
       pkgs.proselint
       pkgs.python3
       pkgs.redis

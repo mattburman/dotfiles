@@ -39,6 +39,7 @@
 
     ;; https://developers.raycast.com/information/lifecycle/deeplinks
     ;; raycast://extensions/<author-or-owner>/<extension-name>/<command-name>
+    ;; can obtain deeplink from cmd+k on the action and selecting copy deeplink
     :raycast "open 'raycast://extensions/%s'"
 }
 :simlayers {
@@ -55,6 +56,7 @@
     :semicolon-mode {:key :semicolon}
     ; :amethyst-mod2-mode {:key :s}
     :m-mode {:key :m} ; cmd+shift
+    :n-mode {:key :n} ; numbers on home row
     :c-mode {:key :c} ; cmd+shift alternative for weird keys like []
 }
 :main [
@@ -165,7 +167,8 @@
         [:##h :left_arrow]
         [:##l :right_arrow]
         [:##b :!Oleft_arrow]
-        [:##w :!Oright_arrow]
+        [:##n :!Oright_arrow]
+        [:##m :!Th] ; ctrl+h often backspace
         [:##a :!Ca]; highlight all
         [:##e :!Te]; go to end of line via ctrl-e
         [:##f :return_or_enter]
@@ -205,10 +208,10 @@
 
         ;; windows
         [:b {:key :tab :modi :command}] ; window switcher
-        [:c [:launch "CLion"]]
+        [:c [:launch "Google Calendar"]]
         [:d [:launch "kitty"]]
         [:e [:raycast "raycast/navigation/switch-windows"]]
-        [:f :!Creturn_or_enter] ; opens new split in kitty
+        [:f [:launch "CLion"]]
         [:g [:launch "Google Chrome"]]
         [:i [:launch "kitty"]]
         [:j [:!CSopen_bracket ]] ; switch tabs left
@@ -218,9 +221,10 @@
         [:p :!CSa] ; chrome tab switcher + intellij action search
         [:r {:key :non_us_backslash :modi :command}] ; switch same app
         [:s [:launch "Slack"]]
-        [:v [:launch "CLion"]]
+        [:v :!Creturn_or_enter] ; opens new split in kitty
         [:w :!Cw] ; close tab
         [:x [:launch "1Password"]]
+        [:m :!CSm] ; todo make kitty only. toggle maximize in kitty, otherwise nm
       ]
     }
 
@@ -325,6 +329,11 @@
 
       {:des "quote (cmd + shift)"
          :rules [:quote-mode
+                 [:j :!CSj]
+                 [:k :!CSk]
+                 [:l :!CSl]
+                 [:h :!CSh]
+
                  [:1 :!CS1]
                  [:2 :!CS2]
                  [:3 :!CS3]
@@ -379,6 +388,21 @@
                  [:m :!Cw] ; close tab
                  [:h :return_or_enter]
    ]}
+
+  {:des "n-mode numbers on home row"
+      :rules [:n-mode
+              [:a :1]
+              [:s :2]
+              [:d :3]
+              [:f :4]
+              [:g :5]
+              [:h :6]
+              [:j :7]
+              [:k :8]
+              [:l :9]
+              [:semicolon :0]
+              ]
+   }
 
   {:des "colonkey (shift)"
          :rules [:semicolon-mode

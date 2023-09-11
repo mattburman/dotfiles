@@ -36,6 +36,8 @@ Temporary Items
 !.vscode/extensions.json
 *.code-workspace
 
+.idea
+
 
 ### https://github.com/github/gitignore/blob/master/Global/Vim.gitignore
 # Swap
@@ -92,3 +94,6 @@ tags
 
 # data directories for messing around
 mbdata
+
+# .log files
+*.log

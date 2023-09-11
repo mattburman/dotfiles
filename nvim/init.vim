@@ -53,7 +53,13 @@ let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 200
 autocmd BufEnter PKGBUILD,.env
     \   let b:ale_sh_shellcheck_exclusions = 'SC2034,SC2154,SC2164'
+
+" reload configs on save
 autocmd BufWritePost karabiner.edn !goku
+autocmd BufWritePost kitty.conf !kill -SIGUSR1 $(pgrep -a kitty)
+autocmd BufWritePost darwin-configuration.nix !darwin-rebuild switch
+autocmd BufWritePost init.vim source %
+
 
 " call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 

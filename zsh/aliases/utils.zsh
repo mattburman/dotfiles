@@ -10,6 +10,8 @@ function unbak () {
   mv "$(echo $1 | sed 's/.bak//g')"{.bak,}
 }
 
+alias wt='watch'
+
 alias v="nvim"
 
 alias tm="tmux"
