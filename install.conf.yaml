@@ -24,6 +24,8 @@
     ~/.nixpkgs/darwin-configuration.nix: nix/darwin-configuration.nix
     ~/.phoenix.js: phoenix.js
     ~/.fdignore: fdignore
+    ~/.ripgreprc: .ripgreprc
+    ~/.ignore: .ignore
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
