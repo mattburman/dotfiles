@@ -2,6 +2,17 @@
 
 {
   services.nix-daemon.enable = true;
+
+  system.defaults.dock.autohide = true;
+  system.defaults.dock.mru-spaces = false; # most recently used - rearranges dock.
+  system.defaults.dock.orientation = "bottom";
+  system.defaults.dock.showhidden = true;
+
+  system.defaults.finder.AppleShowAllExtensions = true;
+  system.defaults.finder.AppleShowAllFiles = true;
+  system.defaults.finder.QuitMenuItem = true;
+  system.defaults.finder.FXEnableExtensionChangeWarning = false;
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
@@ -86,6 +97,7 @@
       pkgs.tree
       pkgs.unixtools.watch
       pkgs.vim
+      pkgs.watchexec
       pkgs.wget
       pkgs.yq
       pkgs.zsh
@@ -110,6 +122,6 @@
 
   # You should generally set this to the total number of logical cores in your system.
   # $ sysctl -n hw.ncpu
-  nix.maxJobs = 1;
-  nix.buildCores = 1;
+  nix.settings.max-jobs = 10;
+  nix.settings.cores = 10;
 }

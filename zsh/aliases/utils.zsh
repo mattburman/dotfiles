@@ -2,6 +2,16 @@ alias cgrep="grep --color=always"
 alias mk="make"
 alias dogall="dog A NS MX TXT CNAME SOA"
 
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
+
 function bak () {
   mv $1{,.bak}
 }

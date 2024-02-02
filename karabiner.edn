@@ -29,6 +29,9 @@
  :applications { ;; osascript -e 'id of app "Google Chrome"'
     :Intellij [
       "^com\\.jetbrains\\.CLion$"
+      "^com\\.jetbrains\\.RustRover$"
+      "^com\\.jetbrains\\.rustrover$"
+      "^com\\.jetbrains\\.rustrover-EAP$"
       "^com\\.jetbrains\\.Goland$"
    ]
  }
@@ -211,7 +214,7 @@
         [:c [:launch "Google Calendar"]]
         [:d [:launch "kitty"]]
         [:e [:raycast "raycast/navigation/switch-windows"]]
-        [:f [:launch "CLion"]]
+        [:f [:launch "RustRover"]]
         [:g [:launch "Google Chrome"]]
         [:i [:launch "kitty"]]
         [:j [:!CSopen_bracket ]] ; switch tabs left
