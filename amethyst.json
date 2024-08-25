@@ -1,10 +1,5 @@
 {
-  "layouts": [
-    "fullscreen",
-    "two-pane",
-    "middle-wide",
-    "floating"
-  ],
+  "layouts": ["fullscreen", "two-pane", "middle-wide", "floating"],
   "Valid modifiers are": ["option", "shift", "control", "command"],
   "mod1": ["option", "shift"],
   "mod2": ["option", "shift", "control"],

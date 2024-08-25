@@ -17,7 +17,9 @@ autocmd FileType gitcommit set colorcolumn+=51
 
 " js colours for jsonl
 autocmd BufNewFile,BufRead *.jsonl set ft=javascript
+autocmd BufNewFile,BufRead *gitconfig* set ft=dosini
 
+autocmd FileType python setlocal tabstop=8 softtabstop=8 shiftwidth=8  autoindent noexpandtab
 
 """ ale config before it loads
 " let g:ale_completion_enabled = 1
@@ -57,7 +59,7 @@ autocmd BufEnter PKGBUILD,.env
 " reload configs on save
 autocmd BufWritePost karabiner.edn !goku
 autocmd BufWritePost kitty.conf !kill -SIGUSR1 $(pgrep -a kitty)
-autocmd BufWritePost darwin-configuration.nix !darwin-rebuild switch
+" autocmd BufWritePost darwin-configuration.nix !darwin-rebuild switch " todo enable with way to enter pw in vim
 autocmd BufWritePost init.vim source %
 
 
@@ -75,6 +77,9 @@ nnoremap <Space><Space> <C-w>
 map tdmb A// TODO(mattb):<Space>
 nnoremap <Space>i <C-i>
 nnoremap <Space>o <C-o>
+" swap # and * since # is one key on uk layout so prefer forward
+nnoremap # *
+nnoremap * #
 """IDEAVIMCOMMON
 
 """IDEAVIMLIKE
@@ -94,6 +99,20 @@ noremap <Space>j :ALECodeAction<cr>
 """END IDEAVIMLIKE
 noremap <Space>; :History:<cr>
 
+" would be nice if i could do this in ideavim too:
+function! OpenURLUnderCursor()
+  let s:uri = expand('<cWORD>')
+  let s:uri = substitute(s:uri, '?', '\\?', '')
+  let s:uri = shellescape(s:uri, 1)
+  if s:uri != ''
+    silent exec "!open '".s:uri."'"
+    :redraw!
+  endif
+endfunction
+nnoremap gx :call OpenURLUnderCursor()<CR>
+
+
+
 " Install plugins
 call plug#begin()
 """PLUGSHARED
@@ -112,6 +131,15 @@ Plug 'tpope/vim-repeat'
 " color schemes
 Plug 'whatyouhide/vim-gotham'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'ayu-theme/ayu-vim' " or other package manager
+"...
+set termguicolors     " enable true colors support
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
+" todo make switch to light
+
+
 Plug 'jjo/vim-cue'
 Plug 'TaDaa/vimade' " dim inactive
 let g:vimade = {}
@@ -229,6 +257,9 @@ Plug 'tpope/vim-commentary'
 
 call plug#end()
 
+" UI
+colorscheme ayu
+
 
 """ general
 
@@ -251,10 +282,6 @@ set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 set expandtab
-
-" UI
-" colorscheme gotham
-colorscheme dracula
 
 set cursorline  " Highlight current line
 set showmatch

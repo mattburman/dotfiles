@@ -1,5 +1,15 @@
 # extending https://github.com/akarzim/zsh-docker-aliases
 
+alias dkpsaq='docker ps -aq'
+
+alias dkeit='docker exec -it'
+alias dkeitl='dkeit $(docker ps -aqn 1) bash'
+
+alias dkce='docker-compose exec'
+
+dkcsh() { docker-compose exec -it "$1" /bin/sh }
+dkcbash() { docker-compose exec -it "$1" /bin/bash }
+
 # remove all containers
 alias dkCnuke='docker rm -v $(docker ps -aq)'
 
@@ -8,6 +18,10 @@ alias dkcrs="docker-compose restart"
 
 # up daemonised
 alias dkcud="docker-compose up -d"
+alias dkcud="docker-compose up -d --wait"
+
+alias dkcdud="docker-compose down && docker-compose up -d"
+alias dkcdudw="docker-compose down && docker-compose up -d --wait"
 
 # logs
 alias dkclf="docker-compose logs -f"

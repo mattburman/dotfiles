@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   services.nix-daemon.enable = true;
@@ -13,10 +13,16 @@
   system.defaults.finder.QuitMenuItem = true;
   system.defaults.finder.FXEnableExtensionChangeWarning = false;
 
+  # Enable the unfree 1Password packages
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "1password-cli"
+  ];
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [
+      pkgs._1password
       pkgs.amazon-ecr-credential-helper
       pkgs.awscli2
       pkgs.aws-iam-authenticator
@@ -68,6 +74,7 @@
       pkgs.mtr
       pkgs.neovim
       pkgs.nickel
+      pkgs.nodejs
       pkgs.nodePackages.prettier
       pkgs.openssh
       pkgs.pandoc
@@ -88,6 +95,7 @@
       pkgs.sqlite
       pkgs.stern
       pkgs.taplo
+      pkgs.tcpdump
       pkgs.teleport
       pkgs.telepresence2
       pkgs.terraform

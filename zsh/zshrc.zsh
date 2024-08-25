@@ -4,14 +4,21 @@ function .f() {
 }
 alias .z="source $DOTFILES/zsh/zshrc.zsh"
 
+export DELTA_FEATURES=+navigate
 
-# if [[ ! ( $(darkMode) =~ 'Dark' ) ]]; then
-#   kitty +kitten themes --reload-in=all "Tango Light"
-# else
-#   # TODO: fix dark theme
-#   # kitty +kitten themes --reload-in=all "Tango Dark"
-#   kitty +kitten themes --reload-in=all "Tango Light"
-# fi
+function theme() {
+  # todo change vim theme automatically
+  if [[ ! ( $(darkMode) =~ 'Dark' ) ]]; then
+    kitty +kitten themes --reload-in=all "Ayu Light"
+  else
+    kitty +kitten themes --reload-in=all "Ayu"
+  fi
+}
+
+# todo make it run theme on system notification or interval
+# https://arslan.io/2021/02/15/automatic-dark-mode-for-terminal-applications/
+# e.g. something like the following in crontab
+# if [[ ! $(2>/dev/null defaults read -g AppleInterfaceStyle) =~ 'Dark' ]] && head -n1 ~/.config/kitty/current-theme.conf | grep -Eqv 'background[[:blank:]]+#fafafa'; then /opt/homebrew/bin/kitty +kitten themes --reload-in=all "Ayu Light"; elif [[ $(2>/dev/null defaults read -g AppleInterfaceStyle) =~ 'Dark' ]] && head -n1 ~/.config/kitty/current-theme.conf | grep -Eqv 'background[[:blank:]]+#0e1419'; then /opt/homebrew/bin/kitty +kitten themes --reload-in=all "Ayu"; else echo noc; fi;
 
 alias cd-="cd -"
 
@@ -79,6 +86,14 @@ prompt_segment() {
   [[ -n $3 ]] && echo -n $3
 }
 
+prompt_kubens() {
+  command -v kubens >/dev/null 2>&1 || return
+  kns="$(kubens --current)"
+  [ -z "$kns" ] && return
+  prompt_segment blue white
+  echo -n "$kns"
+}
+
 prompt_git() {
   (( $+commands[git] )) || return
   local PL_BRANCH_CHAR
@@ -142,7 +157,7 @@ prompt_path() {
 }
 
 prompt_time() {
-  prompt_segment red black
+  prompt_segment black white
   echo -n $(date +'%d/%m %X')
 }
 
@@ -161,6 +176,7 @@ build_prompt() {
   prompt_time
   prompt_hostname
   prompt_git
+  prompt_kubens
   prompt_path
   prompt_segment
   echo -e '\n$ '
@@ -171,9 +187,10 @@ function precmd {
   PROMPT="$(build_prompt)"
 }
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# slows down load, and dont use much. disable for now.
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 uname | grep -q "Darwin" && source ~/.zsh/darwin.zsh
 

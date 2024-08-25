@@ -10,6 +10,9 @@ nnoremap <Space><Space> <C-w>
 map tdmb A// TODO(mattb):<Space>
 nnoremap <Space>i <C-i>
 nnoremap <Space>o <C-o>
+" swap # and * since # is one key on uk layout so prefer forward
+nnoremap # *
+nnoremap * #
 """END IDEVIMCOMMON
 
 """IDEAVIMLIKE Keybinds to IDEA functionality rather than VIM actions.

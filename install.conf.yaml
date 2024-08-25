@@ -8,6 +8,7 @@
 
 - link:
     ~/.config/nvim: nvim
+    ~/.config/aerospace/aerospace.toml: aerospace.toml
     ~/.ideavimrc: ideavimrc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/yabai/yabairc: yabairc
@@ -18,6 +19,7 @@
     ~/.zsh:
     ~/.gitignore_global: git/gitignore_global
     ~/.gitconfig: git/gitconfig
+    ~/.gitconfig-delta-themes: git/gitconfig-delta-themes
     ~/.git-template: git/git-template
     ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
     ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json

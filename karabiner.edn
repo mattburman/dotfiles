@@ -28,10 +28,8 @@
          :sim     10}} ; keys need to be pressed within this threshold to be considered simultaneous
  :applications { ;; osascript -e 'id of app "Google Chrome"'
     :Intellij [
-      "^com\\.jetbrains\\.CLion$"
       "^com\\.jetbrains\\.RustRover$"
-      "^com\\.jetbrains\\.rustrover$"
-      "^com\\.jetbrains\\.rustrover-EAP$"
+      "^com\\.jetbrains\\.IntelliJ IDEA Ultimate$"
       "^com\\.jetbrains\\.Goland$"
    ]
  }
@@ -55,79 +53,51 @@
     :o-mode {:key :o}
     :p-mode {:key :p}
     :caps_lock-mode {:key :caps_lock}
-    :amethyst-mod1-mode {:key :q}
     :semicolon-mode {:key :semicolon}
-    ; :amethyst-mod2-mode {:key :s}
+    :layouts-mode {:key :s}
     :m-mode {:key :m} ; cmd+shift
     :n-mode {:key :n} ; numbers on home row
     :c-mode {:key :c} ; cmd+shift alternative for weird keys like []
 }
 :main [
-    ;; amethyst modes should be generated using amethyst-to-goku.js
-    ;; with amethyst.json as source of truth
-    ;; :r!./amethyst-to-goku.js
+    {:des "window layouts in aerospace etc"
+      :rules [:layouts-mode
+       ; [:spacebar [:!OSTspacebar]] ;; cycle-layout-backward
+       ; [:w [:!OSTw]] ;; throw-screen-1
+       ; [:e [:!OSTe]] ;; throw-screen-2
+       ; [:r [:!OSTr]] ;; throw-screen-3
+       ; [:q [:!OSTq]] ;; throw-screen-4
 
+       [:h [:!OSh]]
+       [:l [:!OSl]]
+       [:j [:!OSj]]
+       [:k [:!OSk]]
 
+       [:n [:!Ocomma]]
+       [:m [:!Oslash]]
 
+       [:open_bracket [:!OShyphen]] ;; resize start +
+       [:close_bracket [:!OSequal_sign]] ;; resize smart -
+       [:hyphen [:!Chyphen]] ;; zoom out
+       [:equal_sign [:!Cequal_sign]] ;; zoom in
 
-    {:des "amethyst mod1 mode"
-      :rules [:amethyst-mod1-mode
-       [:spacebar [:!OSspacebar]] ;; cycle-layout
-       [:g [:!OSg]] ;; select-tall-layout
-       [:x [:!OSx]] ;; select-wide-layout
-       [:3 [:!OS3]] ;; select-middle-wide-layout
-       [:4 [:!OS4]] ;; select-fullscreen-layout
-       [:u [:!OSu]] ;; select-floating-layout
-       [:2 [:!OS2]] ;; select-two-pane-layout
-       [:p [:!OSp]] ;; focus-screen-ccw
-       [:n [:!OSn]] ;; focus-screen-cw
-       [:w [:!OSw]] ;; focus-screen-1
-       [:e [:!OSe]] ;; focus-screen-2
-       [:r [:!OSr]] ;; focus-screen-3
-       [:h [:!OSh]] ;; shrink-main
-       [:l [:!OSl]] ;; expand-main
-       [:comma [:!OScomma]] ;; increase-main
-       [:period [:!OSperiod]] ;; decrease-main
-       [:k [:!OSk]] ;; focus-ccw
-       [:j [:!OSj]] ;; focus-cw
-       [:m [:!OSm]] ;; focus-main
-       [:return_or_enter [:!OSreturn_or_enter]] ;; swap-main
-       [:t [:!OSt]] ;; toggle-float
-       [:i [:!OSi]] ;; display-current-layout
-       [:z [:!OSz]] ;; reevaluate-windows
+       ; [:1 [:!OST1]] ;; throw-space-1
+       ; [:2 [:!OST2]] ;; throw-space-2
+       ; [:3 [:!OST3]] ;; throw-space-3
+       ; [:4 [:!OST4]] ;; throw-space-4
+       ; [:5 [:!OST5]] ;; throw-space-5
+       ; [:6 [:!OST6]] ;; throw-space-6
+       ; [:7 [:!OST7]] ;; throw-space-7
+       ; [:8 [:!OST8]] ;; throw-space-8
+       ; [:9 [:!OST9]] ;; throw-space-9
+       ; [:0 [:!OST0]] ;; throw-space-10
+       ; [:left_arrow [:!OSTleft_arrow]] ;; throw-space-left
+       ; [:right_arrow [:!OSTright_arrow]] ;; throw-space-right
+       ; [:t [:!OSTt]] ;; toggle-tiling
+       ; [:x [:!OSTx]] ;; toggle-focus-follows-mouse
+       ; [:z [:!OSTz]] ;; relaunch-amethyst
      ]
     }
-
-    {:des "amethyst mod2 mode"
-      :rules [:amethyst-mod2-mode
-       [:spacebar [:!OSTspacebar]] ;; cycle-layout-backward
-       [:w [:!OSTw]] ;; throw-screen-1
-       [:e [:!OSTe]] ;; throw-screen-2
-       [:r [:!OSTr]] ;; throw-screen-3
-       [:q [:!OSTq]] ;; throw-screen-4
-       [:h [:!OSTh]] ;; swap-screen-ccw
-       [:l [:!OSTl]] ;; swap-screen-cw
-       [:j [:!OSTj]] ;; swap-ccw
-       [:k [:!OSTk]] ;; swap-cw
-       [:1 [:!OST1]] ;; throw-space-1
-       [:2 [:!OST2]] ;; throw-space-2
-       [:3 [:!OST3]] ;; throw-space-3
-       [:4 [:!OST4]] ;; throw-space-4
-       [:5 [:!OST5]] ;; throw-space-5
-       [:6 [:!OST6]] ;; throw-space-6
-       [:7 [:!OST7]] ;; throw-space-7
-       [:8 [:!OST8]] ;; throw-space-8
-       [:9 [:!OST9]] ;; throw-space-9
-       [:0 [:!OST0]] ;; throw-space-10
-       [:left_arrow [:!OSTleft_arrow]] ;; throw-space-left
-       [:right_arrow [:!OSTright_arrow]] ;; throw-space-right
-       [:t [:!OSTt]] ;; toggle-tiling
-       [:x [:!OSTx]] ;; toggle-focus-follows-mouse
-       [:z [:!OSTz]] ;; relaunch-amethyst
-     ]
-    }
-
-    ;; end amethyst section
 
     {:des "o-mode - search-mode"
       :rules [:o-mode
@@ -162,7 +132,8 @@
     {:des "Vi Mode [D as Trigger Key]"
       :rules [:vi-mode
         [:w [:!Oleft_arrow :!OSright_arrow]]
-        [:r :!Stab]
+        ; [:r :!Stab] not sure what for?
+        [:r :!Tr]
         [:t :tab]
         [:g :!Ctab]
         [:##j :down_arrow]
@@ -195,39 +166,53 @@
     {:des "Window mode [A key as Trigger Key]",
      :rules [:window-mode
         ;; copy from amethyst mode 1
-        [:t [:!OSt]] ;; toggle-float
+        [:y [:!OSt]] ;; toggle-float
         [:4 [:!OS4]] ;; select-fullscreen-layout
         [:3 [:!OS3]] ;; select-middle-wide-layout
         [:2 [:!OS2]] ;; select-two-pane-layout
         [:spacebar [:!OSspacebar]] ;; cycle-layout
 
-        ;; copy from amethyst mode 2
-        [:h [:!OSh]] ;; shrink-main
-        [:l [:!OSl]] ;; expand-main
+        [:h [:!Oh]]
+        [:l [:!Ol]]
+        [:j [:!Oj]]
+        [:k [:!Ok]]
+
         [:return_or_enter [:!OSreturn_or_enter]] ;; swap-main
 
         ;; semicolon alias for swap-main
         [:semicolon [:!OSreturn_or_enter]] ;; swap-main
 
-        ;; windows
-        [:b {:key :tab :modi :command}] ; window switcher
-        [:c [:launch "Google Calendar"]]
+        [:hyphen [:!Chyphen]] ;; zoom out
+        [:equal_sign [:!Cequal_sign]] ;; zoom in
+
+        ;; left home row windows
+        [:s [:launch "Slack"]]
         [:d [:launch "kitty"]]
-        [:e [:raycast "raycast/navigation/switch-windows"]]
         [:f [:launch "RustRover"]]
         [:g [:launch "Google Chrome"]]
-        [:i [:launch "kitty"]]
+
+        ;; left below
+        [:x [:launch "1Password"]]
+        [:c [:launch "Google Calendar"]]
+        [:v [:launch "Gmail"]]
+
+        ;; left above
+        [:w :!Cw] ; close tab
+        [:e [:raycast "raycast/navigation/switch-windows"]]
+        [:r {:key :non_us_backslash :modi :command}] ; switch same app
+        [:t :!Creturn_or_enter] ; opens new split in kitty
+
+        ;; right home row
         [:j [:!CSopen_bracket ]] ; switch tabs left
         [:k [:!CSclose_bracket ]] ; switch tabs right
-        [:n [:launch "Notes"]]
+
+        [:b {:key :tab :modi :command}] ; window switcher
+        [:i [:launch "kitty" ]]
+        [:n :!CSopen_bracket ]
+        [:m :!CSclose_bracket ]
         [:o [:launch "2Do"]]
         [:p :!CSa] ; chrome tab switcher + intellij action search
-        [:r {:key :non_us_backslash :modi :command}] ; switch same app
-        [:s [:launch "Slack"]]
-        [:v :!Creturn_or_enter] ; opens new split in kitty
-        [:w :!Cw] ; close tab
-        [:x [:launch "1Password"]]
-        [:m :!CSm] ; todo make kitty only. toggle maximize in kitty, otherwise nm
+        ;; [:m :!CSm] ; todo make kitty only. toggle maximize in kitty, otherwise nm
       ]
     }
 

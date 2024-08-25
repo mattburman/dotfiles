@@ -1,4 +1,5 @@
 alias cb='cargo build'
+alias cba='cargo build --all-targets'
 alias cch='cargo check'
 alias ccl='cargo clippy'
 alias cf='cargo fmt -v'
@@ -12,6 +13,7 @@ alias cwch='cargo watch -x clippy'
 
 # same but r can be more convenient s/c/r/
 alias rb='cargo build'
+alias rba='cargo build --all-targets'
 alias rch='cargo check'
 alias rcl='cargo clippy'
 alias rf='cargo fmt -v'

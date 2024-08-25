@@ -365,6 +365,7 @@ alias gshs='git show -s'
 alias gshsfb='git show -s --format=%B'
 
 alias gpuoh='git push -u origin HEAD'
+alias gpuoho='git push -u origin HEAD | tee /dev/stderr | grep -Eo "(http|https|ws|wss)://[a-zA-Z0-9./?=_:\%-]*(#\S*)?" | grep merge_request | xargs open'
 function gcmh() {
   BRANCH=$(git symbolic-ref --short HEAD)
   git commit -m "[$BRANCH] $1"
@@ -401,7 +402,7 @@ alias grsh1='git reset HEAD~1'
 
 # git rebase master with stash, fetch master and stash pop
 function grbomsf() {
-  git stash -m "tmp-pre-rb"
+  git stash -m 'tmp-pre-rb'
   gfom
   grbom
 
@@ -409,12 +410,12 @@ function grbomsf() {
   gl || 1
   gco-
 
-  git stash list | grep "tmp-pre-rb" && git stash pop --index
+  git stash list | grep 'stash@{0}:.* tmp-pre-rb' && git stash pop --index
 }
 
 # git rebase master interactively with stash, fetch master and stash pop
 function grbiomsf() {
-  git stash -m "tmp-pre-rb"
+  git stash -m 'tmp-pre-rb'
 
   gfom
   grbiom
@@ -423,5 +424,5 @@ function grbiomsf() {
   gl || 1
   gco-
 
-  git stash list | grep "tmp-pre-rb" && git stash pop --index
+  git stash list | grep 'stash@{0}:.* tmp-pre-rb' && git stash pop --index
 }
