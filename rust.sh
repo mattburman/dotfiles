@@ -5,6 +5,8 @@ source "$HOME/.cargo/env"
 
 cargo install cargo-binstall
 cargo install cargo-machete
+cargo install rust-script
+# cargo install llvm-cov
 # or
 # wget https://github.com/cargo-bins/cargo-binstall/releases/latest/download/cargo-binstall-aarch64-apple-darwin.zip
 # unzip cargo-binstall-aarch64-apple-darwin.zip

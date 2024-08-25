@@ -1,8 +1,9 @@
 # used by script in dotbot install script
 # generates single fast script to source in zshrc
 akarzim/zsh-docker-aliases
-lukechilds/zsh-nvm
+# lukechilds/zsh-nvm # slows down shell
 ahmetb/kubectx path:completion kind:fpath
+casey/just path:completions kind:fpath
 olets/zsh-abbr
 tarrasch/zsh-bd
 Aloxaf/fzf-tab

@@ -2,7 +2,7 @@
 	name = Matt Burman
 	email = matt@mattburman.com
 
-[includeIf "gitdir:~/src/"]
+[includeIf "gitdir:~/c/w/"]
 	path = ~/.gitconfig-w
 
 [includeIf "gitdir:~/c/w"]
@@ -14,18 +14,14 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
-  pager = delta
+  pager = delta --features "$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo colibri || echo coracias-caudatus)"
 	editor = nvim
+
+[include]
+    path = ~/.gitconfig-delta-themes
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-
-[delta]
-  theme = "Monokai Extended"
-  # plus-style = "syntax #012800"
-  # minus-style = "syntax #340001"
-  light = true
-  navigate = true
 
 [interactive]
   diffFilter = delta --color-only

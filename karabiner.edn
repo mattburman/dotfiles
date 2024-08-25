@@ -57,7 +57,7 @@
     :caps_lock-mode {:key :caps_lock}
     :amethyst-mod1-mode {:key :q}
     :semicolon-mode {:key :semicolon}
-    ; :amethyst-mod2-mode {:key :s}
+    :amethyst-mod2-mode {:key :s}
     :m-mode {:key :m} ; cmd+shift
     :n-mode {:key :n} ; numbers on home row
     :c-mode {:key :c} ; cmd+shift alternative for weird keys like []
@@ -162,7 +162,8 @@
     {:des "Vi Mode [D as Trigger Key]"
       :rules [:vi-mode
         [:w [:!Oleft_arrow :!OSright_arrow]]
-        [:r :!Stab]
+        ; [:r :!Stab] not sure what for?
+        [:r :!Tr]
         [:t :tab]
         [:g :!Ctab]
         [:##j :down_arrow]

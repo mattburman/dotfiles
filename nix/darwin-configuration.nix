@@ -88,6 +88,7 @@
       pkgs.sqlite
       pkgs.stern
       pkgs.taplo
+      pkgs.tcpdump
       pkgs.teleport
       pkgs.telepresence2
       pkgs.terraform

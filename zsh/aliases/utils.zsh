@@ -2,6 +2,18 @@ alias cgrep="grep --color=always"
 alias mk="make"
 alias dogall="dog A NS MX TXT CNAME SOA"
 
+alias l='ls -l'
+alias la='ls -la'
+alias lh='ls -lh'
+alias lah='ls -lah'
+
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+
+alias x='exit'
+
 listening() {
     if [ $# -eq 0 ]; then
         sudo lsof -iTCP -sTCP:LISTEN -n -P
@@ -86,7 +98,7 @@ function ia-save() {
 alias archivebox="docker run -v "$HOME"/c/data/archivebox:/data -it archivebox/archivebox"
 alias archivebox-server="docker run -v "$HOME"/c/data/archivebox:/data -p 8000:8000 -it archivebox/archivebox server 0.0.0.0:8000"
 
-alias grep-urls='grep -Eo "(http|https|ws|wss)://[a-zA-Z0-9./?=_:-]*(#\S*)?"'
+alias grep-urls='grep -Eo "(http|https|ws|wss)://[a-zA-Z0-9./?=_:\%-]*(#\S*)?"'
 alias grep-ips="grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'"
 
 alias sed-host="sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/'"

@@ -1,5 +1,10 @@
 # extending https://github.com/akarzim/zsh-docker-aliases
 
+alias dkpsaq='docker ps -aq'
+
+alias dkeit='docker exec -it'
+alias dkeitl='dkeit $(docker ps -aqn 1) bash'
+
 # remove all containers
 alias dkCnuke='docker rm -v $(docker ps -aq)'
 
