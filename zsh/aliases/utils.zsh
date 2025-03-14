@@ -14,6 +14,55 @@ alias .....='cd ../../../../'
 
 alias x='exit'
 
+function directory {
+  local name=$1
+  local path=$2
+
+  # Create an environment variable with the repo's base path
+  eval "export ${name}=\"$path\""
+
+  # Define a completion function for files using fd.
+  eval "function _${name}_files {
+    local -a files
+    files=(\${(f)\"\$(cd \"\$$name\" && fd . --color=never --type f --strip-cwd-prefix 2>/dev/null)\"})
+    compadd -- \${(q)files[@]}
+  }"
+  eval "function vim${name} {
+    vim \"\$$name/\$1\"
+  }"
+  eval "compdef _${name}_files vim${name}"
+
+  # Define a directory completion function using fd.
+  eval "function _${name} {
+    local -a dirs
+    dirs=(\${(f)\"\$(cd \"\$$name\" && fd . --color=never --type d --strip-cwd-prefix 2>/dev/null)\"})
+    compadd -- \${(q)dirs[@]}
+  }"
+
+  # Create a function that cd's into a subdirectory of the repo.
+  eval "function ${name} {
+    cd \$$name/\$1
+  }"
+  compdef _${name} ${name}
+
+  eval "function cd${name} {
+    cd \$$name/\$1
+  }"
+  compdef _${name} cd${name}
+
+  # Create an rg function (e.g. rgmars) that runs ripgrep in the repo.
+  eval "function rg${name}() {
+    local pattern=\$1; shift;
+    rg \"\$pattern\" \"\$@\" \"\$$name\";
+  }"
+
+  # Create an fd function (e.g. fdmars) that runs fd in the repo.
+  eval "function fd${name}() {
+    local query=\$1; shift;
+    fd \"\$query\" \"\$@\" \"\$$name\";
+  }"
+}
+
 listening() {
     if [ $# -eq 0 ]; then
         sudo lsof -iTCP -sTCP:LISTEN -n -P
