@@ -50,16 +50,21 @@ function directory {
   }"
   compdef _${name} cd${name}
 
-  # Create an rg function (e.g. rgmars) that runs ripgrep in the repo.
+  # Create an rg function (e.g. rgdotfiles) that runs ripgrep in the repo.
   eval "function rg${name}() {
     local pattern=\$1; shift;
     rg \"\$pattern\" \"\$@\" \"\$$name\";
   }"
 
-  # Create an fd function (e.g. fdmars) that runs fd in the repo.
+  # Create an fd function (e.g. fddotfiles) that runs fd in the repo.
   eval "function fd${name}() {
     local query=\$1; shift;
     fd \"\$query\" \"\$@\" \"\$$name\";
+  }"
+
+  # Create a git function (e.g. gdotfiles) that runs git in the repo.
+  eval "function g${name}() {
+    git -C "$2" \"\$@\"
   }"
 }
 
@@ -74,11 +79,24 @@ listening() {
 }
 
 function bak () {
-  mv $1{,.bak}
+  local file="${@: -1}"  # Get the last argument (filename)
+  if [ $# -gt 1 ]; then
+    local mv_args=("${@:1:$#-1}")  # Get all arguments except the last one
+    mv "${mv_args[@]}" "$file" "$file.bak"
+  else
+    mv "$file" "$file.bak"
+  fi
 }
 
 function unbak () {
-  mv "$(echo $1 | sed 's/.bak//g')"{.bak,}
+  local file="${@: -1}"  # Get the last argument (filename)
+  local original="$(echo $file | sed 's/.bak//g')"
+  if [ $# -gt 1 ]; then
+    local mv_args=("${@:1:$#-1}")  # Get all arguments except the last one
+    mv "${mv_args[@]}" "$original.bak" "$original"
+  else
+    mv "$original.bak" "$original"
+  fi
 }
 
 alias wt='watch'

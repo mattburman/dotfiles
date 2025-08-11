@@ -8,7 +8,7 @@ function updateall() {
   brew upgrade
   echo "⚡ Updating cask apps: "
   brew outdated --cask
-  brew upgrade --cask
+  brew upgrade --cask --greedy
   echo "⚡ Updating mas apps: "
   mas upgrade
 }

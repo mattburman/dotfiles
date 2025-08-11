@@ -16,40 +16,51 @@
   # Enable the unfree 1Password packages
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "1password-cli"
+    "terraform"
+    "nomad"
+    "consul"
+    "vault"
   ];
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [
-      pkgs._1password
+      pkgs._1password-cli
+      pkgs.activemq
       pkgs.amazon-ecr-credential-helper
-      pkgs.awscli2
+      # pkgs.ast-grep # doesnt alias sg? try brew instead
       pkgs.aws-iam-authenticator
-      pkgs.bash_5
+      pkgs.awscli2
+      pkgs.bash
       pkgs.bat
       pkgs.cmake
+      pkgs.colima
       pkgs.colordiff
+      pkgs.consul
       pkgs.coreutils-full
       pkgs.curl
       pkgs.docker-credential-helpers
       pkgs.dive
       pkgs.envsubst
-      pkgs.exa
+      # pkgs.exa
       pkgs.fd
       pkgs.findutils
       pkgs.fx
       pkgs.fzf
       pkgs.gawk
       # pkgs.gcc
+      pkgs.gh-ost
       pkgs.git-lfs
       pkgs.gitAndTools.gitFull
       # pkgs.gitAndTools.hub
+      pkgs.glab
       pkgs.gnugrep
       pkgs.gnupg
       pkgs.gnuplot
       pkgs.gnused
       pkgs.goku
+      pkgs.granted
       pkgs.graphviz
       pkgs.gron
       pkgs.htop
@@ -60,12 +71,13 @@
       pkgs.jq
       pkgs.just
       pkgs.k9s
-      pkgs.kafkacat
+      pkgs.kcat
       pkgs.kubectl
       pkgs.kubectx
       pkgs.kubernetes-helm
       pkgs.kubeseal
       pkgs.less
+      pkgs.lima
       pkgs.m-cli
       pkgs.mdbook
       # pkgs.mitmproxy
@@ -74,8 +86,9 @@
       pkgs.mtr
       pkgs.neovim
       pkgs.nickel
-      pkgs.nodejs
       pkgs.nodePackages.prettier
+      pkgs.nodejs
+      pkgs.nomad
       pkgs.openssh
       pkgs.pandoc
       pkgs.pass
@@ -104,6 +117,8 @@
       pkgs.topiary
       pkgs.tree
       pkgs.unixtools.watch
+      pkgs.uv
+      pkgs.vault
       pkgs.vim
       pkgs.watchexec
       pkgs.wget

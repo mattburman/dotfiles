@@ -1,8 +1,6 @@
-autoload -Uz compinit && compinit
-
-### Stolen from: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
 # Git version checking
 autoload -Uz is-at-least
+
 git_version="${${(As: :)$(git version 2>/dev/null)}[3]}"
 
 #
@@ -23,7 +21,6 @@ function _git_log_prettily(){
     git log --pretty=$1
   fi
 }
-compdef _git _git_log_prettily=git-log
 
 # Warn if the current branch is a WIP
 function work_in_progress() {
@@ -109,7 +106,6 @@ function gccd() {
   command git clone --recurse-submodules "$@"
   [[ -d "$_" ]] && cd "$_" || cd "${${_:t}%.git}"
 }
-compdef _git gccd=git-clone
 
 alias gcl='git clone --recurse-submodules'
 alias gclean='git clean --interactive -d'
@@ -118,6 +114,24 @@ alias gcm='git checkout $(git_main_branch)'
 alias gcd='git checkout $(git_develop_branch)'
 alias gcmsg='git commit --message'
 alias gco='git checkout'
+alias gcob='git checkout -b'
+function gcobm() {
+  if [[ -z "$1" ]]; then
+    echo "usage: gcobm <new-branch-name>"
+    return 1
+  fi
+  git checkout -b "$1" "$(git_main_branch)"
+}
+
+function gcobmr() {
+  if [[ -z "$1" ]]; then
+    echo "usage: gcobmr <new-branch-name>"
+    return 1
+  fi
+  local main_branch="$(git_main_branch)"
+  git fetch origin "${main_branch}:refs/remotes/origin/${main_branch}"
+  git checkout -b "$1" "origin/${main_branch}"
+}
 alias gcor='git checkout --recurse-submodules'
 alias gcount='git shortlog --summary --numbered'
 alias gcp='git cherry-pick'
@@ -130,7 +144,7 @@ alias gcssm='git commit --gpg-sign --signoff --message'
 alias gd='git diff'
 alias gdca='git diff --cached'
 alias gdcw='git diff --cached --word-diff'
-alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
+alias gdct='git describe --tags $(git rev-parse --tags --max-count=1)'
 alias gds='git diff --staged'
 alias gdt='git diff-tree --no-commit-id --name-only -r'
 alias gdup='git diff @{upstream}'
@@ -139,10 +153,8 @@ alias gdw='git diff --word-diff'
 function gdnolock() {
   git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
 }
-compdef _git gdnolock=git-diff
 
 function gdv() { git diff -w "$@" | view - }
-compdef _git gdv=git-diff
 
 alias gf='git fetch'
 # --jobs=<n> was added in git 2.8
@@ -160,12 +172,10 @@ function ggf() {
   [[ "$#" != 1 ]] && local b="$(git_current_branch)"
   git push --force origin "${b:=$1}"
 }
-compdef _git ggf=git-checkout
 function ggfl() {
   [[ "$#" != 1 ]] && local b="$(git_current_branch)"
   git push --force-with-lease origin "${b:=$1}"
 }
-compdef _git ggfl=git-checkout
 
 function ggl() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
@@ -175,7 +185,6 @@ function ggl() {
     git pull origin "${b:=$1}"
   fi
 }
-compdef _git ggl=git-checkout
 
 function ggp() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
@@ -185,7 +194,6 @@ function ggp() {
     git push origin "${b:=$1}"
   fi
 }
-compdef _git ggp=git-checkout
 
 function ggpnp() {
   if [[ "$#" == 0 ]]; then
@@ -194,13 +202,11 @@ function ggpnp() {
     ggl "${*}" && ggp "${*}"
   fi
 }
-compdef _git ggpnp=git-checkout
 
 function ggu() {
   [[ "$#" != 1 ]] && local b="$(git_current_branch)"
   git pull --rebase origin "${b:=$1}"
 }
-compdef _git ggu=git-checkout
 
 alias ggpur='ggu'
 alias ggpull='git pull origin "$(git_current_branch)"'
@@ -333,7 +339,7 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 
 alias gwt='git worktree'
 alias gwta='git worktree add'
-alias gwtls='git worktree list'
+alias gwtl='git worktree list'
 alias gwtmv='git worktree move'
 alias gwtrm='git worktree remove'
 
@@ -356,8 +362,6 @@ function grename() {
     git push --set-upstream origin "$2"
   fi
 }
-
-unset git_version
 
 ## completely custom by matt:
 alias gadp='git add --patch'

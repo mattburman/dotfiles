@@ -1,3 +1,11 @@
 nvim/autoload
 nvim/plugged
-zsh/**/sbg*.zsh
+**/w-*
+
+.DS_Store
+*~~
+*.swp
+*.swo
+
+# Zsh cache
+zsh/cache/

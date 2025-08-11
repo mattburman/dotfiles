@@ -7,6 +7,3 @@
 [submodule "zsh/submodules/kubectl-aliases"]
 	path = zsh/submodules/kubectl-aliases
 	url = https://github.com/ahmetb/kubectl-aliases
-[submodule "limelight"]
-	path = limelight
-	url = https://github.com/koekeishiya/limelight
