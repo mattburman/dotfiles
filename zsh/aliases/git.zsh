@@ -142,6 +142,7 @@ alias gcss='git commit --gpg-sign --signoff'
 alias gcssm='git commit --gpg-sign --signoff --message'
 
 alias gd='git diff'
+alias gdr='git diff "origin/$(git_current_branch)" "$(git_current_branch)"'
 alias gdca='git diff --cached'
 alias gdcw='git diff --cached --word-diff'
 alias gdct='git describe --tags $(git rev-parse --tags --max-count=1)'
