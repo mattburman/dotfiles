@@ -36,7 +36,6 @@ alias t4='tail -4'
 alias t5='tail -5'
 
 function tp() { tail -n+$1 }
-alias tp1='tail -n+1'
 alias tp2='tail -n+2'
 alias tp3='tail -n+3'
 alias tp4='tail -n+4'
