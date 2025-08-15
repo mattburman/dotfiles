@@ -14,6 +14,34 @@ alias .....='cd ../../../../'
 
 alias x='exit'
 
+alias h='head'
+alias h1='head -1'
+alias h2='head -2'
+alias h3='head -3'
+alias h4='head -4'
+alias h5='head -5'
+
+function hm() { head -n-$1 }
+alias hm1='head -n-1'
+alias hm2='head -n-2'
+alias hm3='head -n-3'
+alias hm4='head -n-4'
+alias hm5='head -n-5'
+
+alias t='tail'
+alias t1='tail -1'
+alias t2='tail -2'
+alias t3='tail -3'
+alias t4='tail -4'
+alias t5='tail -5'
+
+function tp() { tail -n+$1 }
+alias tp1='tail -n+1'
+alias tp2='tail -n+2'
+alias tp3='tail -n+3'
+alias tp4='tail -n+4'
+alias tp5='tail -n+5'
+
 function directory {
   local name=$1
   local path=$2
