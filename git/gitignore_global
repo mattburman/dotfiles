@@ -97,3 +97,6 @@ mbdata
 
 # .log files
 *.log
+
+# https://github.com/zabel-xyz/local-history
+.history
