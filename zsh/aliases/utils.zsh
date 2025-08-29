@@ -2,6 +2,8 @@ alias cgrep="grep --color=always"
 alias mk="make"
 alias dogall="dog A NS MX TXT CNAME SOA"
 
+alias da='direnv allow'
+
 alias l='ls -l'
 alias la='ls -la'
 alias lh='ls -lh'
